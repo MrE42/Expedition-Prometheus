@@ -205,6 +205,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mapLayoutTest
       objectReference: {fileID: 0}
+    - target: {fileID: 3757017979618407946, guid: 1b08e43fac0b05c40a1e052361e081e8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.193
+      objectReference: {fileID: 0}
     - target: {fileID: 8081697466444760145, guid: 1b08e43fac0b05c40a1e052361e081e8,
         type: 3}
       propertyPath: m_IsActive
