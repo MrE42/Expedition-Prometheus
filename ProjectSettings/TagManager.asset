@@ -12,6 +12,7 @@ TagManager:
   - Orange
   - Right Hand
   - Left Hand
+  - ArmCannon
   layers:
   - Default
   - TransparentFX
