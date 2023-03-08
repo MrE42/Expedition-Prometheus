@@ -15,6 +15,8 @@ public class ButtonVR : MonoBehaviour
     public UnityEvent onPress;
     public UnityEvent onRelease;
 
+    List<int> codes = new List<int> {1, 2, 3};
+    List<int> currentCode = new List<int> {};
     GameObject presser;
     AudioSource sound;
     bool isPressed;
@@ -31,11 +33,12 @@ public class ButtonVR : MonoBehaviour
         {
             if (!isPressed)
             {
-                gameObject.transform.localPosition += new Vector3(-0.001f, 0, 0);
+                gameObject.transform.localPosition += new Vector3(0.002f, 0, 0);
                 presser = other.gameObject;
                 onPress.Invoke();
-                sound.Play();
+                //sound.Play();
                 isPressed = true;
+                Debug.Log(gameObject.name);
             }
         }
     }
@@ -44,17 +47,9 @@ public class ButtonVR : MonoBehaviour
     {
         if (other.gameObject == presser)
         {
-            gameObject.transform.localPosition += new Vector3(0.001f, 0, 0);
+            gameObject.transform.localPosition += new Vector3(-0.002f, 0, 0);
             onRelease.Invoke();
             isPressed = false;
         }
     }
-    /*
-    public void SpawnSphere()
-    {
-        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        sphere.transform.localPosition = new Vector3(0, 1, 2);
-        sphere.AddComponent<Rigidbody>();
-    }*/
 }
