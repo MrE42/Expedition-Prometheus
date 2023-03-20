@@ -39,6 +39,7 @@ public class ButtonVR : MonoBehaviour
                 //sound.Play();
                 isPressed = true;
                 keypadManager.pressOrder.Add(buttonValue);
+                keypadManager.DisplayCurrentCode();
                 Debug.Log(gameObject.name);
             }
         }

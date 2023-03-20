@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class KeypadManager : MonoBehaviour
 {
-    public GameObject screen;
+    public TextMeshPro screen;
     public List<int> pressOrder = new List<int>();
     public List<ButtonVR> buttons = new List<ButtonVR>();
 
@@ -14,6 +15,11 @@ public class KeypadManager : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public void DisplayCurrentCode()
+    {
+        screen.text = pressOrder.ToString();
     }
 
     // Update is called once per frame
@@ -30,6 +36,16 @@ public class KeypadManager : MonoBehaviour
                 }
             }
             Debug.Log("Code is: "+codesMatch);
+            if (codesMatch)
+            {
+                screen.text = "Accepted";
+                screen.color = new Color(15, 98, 230, 255);
+            }
+            else
+            {
+                screen.text = "Rejected";
+                screen.color = new Color(222, 41, 22, 255);
+            }
             pressOrder = new List<int>();
             foreach (ButtonVR button in buttons)
             {
