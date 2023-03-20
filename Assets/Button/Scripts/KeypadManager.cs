@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,7 +10,7 @@ public class KeypadManager : MonoBehaviour
     public List<int> pressOrder = new List<int>();
     public List<ButtonVR> buttons = new List<ButtonVR>();
 
-    List<int> code = new List<int> { 1, 2, 3 };
+    List<int> code = new List<int> { 1, 3, 2, 4};
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,9 @@ public class KeypadManager : MonoBehaviour
 
     public void DisplayCurrentCode()
     {
-        screen.text = pressOrder.ToString();
+        screen.color = Color.white;
+        List<string> strings = pressOrder.ConvertAll<string>(x => x.ToString());
+        screen.text = String.Join(", ", strings);
     }
 
     // Update is called once per frame
@@ -38,13 +41,13 @@ public class KeypadManager : MonoBehaviour
             Debug.Log("Code is: "+codesMatch);
             if (codesMatch)
             {
+                screen.color = Color.green;
                 screen.text = "Accepted";
-                screen.color = new Color(15, 98, 230, 255);
             }
             else
             {
+                screen.color = Color.red;
                 screen.text = "Rejected";
-                screen.color = new Color(222, 41, 22, 255);
             }
             pressOrder = new List<int>();
             foreach (ButtonVR button in buttons)
