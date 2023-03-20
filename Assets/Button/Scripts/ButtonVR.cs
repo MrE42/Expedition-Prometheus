@@ -12,14 +12,14 @@ public class ButtonVR : MonoBehaviour
 {
     public GameObject handLeft;
     public GameObject handRight;
-    public UnityEvent onPress;
-    public UnityEvent onRelease;
+    //public UnityEvent onPress;
+    //public UnityEvent onRelease;
+    public KeypadManager keypadManager;
+    public int buttonValue;
 
-    List<int> codes = new List<int> {1, 2, 3};
-    List<int> currentCode = new List<int> {};
     GameObject presser;
-    AudioSource sound;
-    bool isPressed;
+    public AudioSource sound;
+    public bool isPressed;
 
     void Start()
     {
@@ -35,21 +35,28 @@ public class ButtonVR : MonoBehaviour
             {
                 gameObject.transform.localPosition += new Vector3(0.002f, 0, 0);
                 presser = other.gameObject;
-                onPress.Invoke();
-                //sound.Play();
+                //onPress.Invoke();
+                sound.Play();
                 isPressed = true;
+                keypadManager.pressOrder.Add(buttonValue);
                 Debug.Log(gameObject.name);
             }
         }
     }
-
+    public void ResetButton()
+    {
+        gameObject.transform.localPosition += new Vector3(-0.002f, 0, 0);
+        //onRelease.Invoke();
+        isPressed = false;
+    }
+    /*
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == presser)
         {
             gameObject.transform.localPosition += new Vector3(-0.002f, 0, 0);
-            onRelease.Invoke();
+            //onRelease.Invoke();
             isPressed = false;
         }
-    }
+    }*/
 }
