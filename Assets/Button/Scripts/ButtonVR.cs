@@ -33,10 +33,10 @@ public class ButtonVR : MonoBehaviour
         {
             if (!isPressed)
             {
-                gameObject.transform.localPosition += new Vector3(0.002f, 0, 0);
+                gameObject.transform.localPosition += new Vector3(-0.002f, 0, 0);
                 presser = other.gameObject;
                 //onPress.Invoke();
-                sound.Play();
+                //sound.Play();
                 isPressed = true;
                 keypadManager.pressOrder.Add(buttonValue);
                 Debug.Log(gameObject.name);
@@ -45,9 +45,12 @@ public class ButtonVR : MonoBehaviour
     }
     public void ResetButton()
     {
-        gameObject.transform.localPosition += new Vector3(-0.002f, 0, 0);
-        //onRelease.Invoke();
-        isPressed = false;
+        if (isPressed)
+        {
+            gameObject.transform.localPosition += new Vector3(0.002f, 0, 0);
+            //onRelease.Invoke();
+            isPressed = false;
+        }
     }
     /*
     private void OnTriggerExit(Collider other)
