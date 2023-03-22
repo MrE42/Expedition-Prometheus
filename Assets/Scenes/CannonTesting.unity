@@ -2629,6 +2629,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a4d4daa634712284fbfd96059740c1af,
+        type: 3}
+      propertyPath: m_TagString
+      value: ArmCannon
+      objectReference: {fileID: 0}
     - target: {fileID: 2851842002677493376, guid: a4d4daa634712284fbfd96059740c1af,
         type: 3}
       propertyPath: m_Layer
