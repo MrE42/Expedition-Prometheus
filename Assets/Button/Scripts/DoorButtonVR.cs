@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ButtonVR : MonoBehaviour
+public class DoorButtonVR : MonoBehaviour
 {
     public GameObject handLeft;
     public GameObject handRight;

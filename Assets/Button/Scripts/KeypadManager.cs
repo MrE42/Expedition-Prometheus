@@ -8,7 +8,7 @@ public class KeypadManager : MonoBehaviour
 {
     public TextMeshPro screen;
     public List<int> pressOrder = new List<int>();
-    public List<ButtonVR> buttons = new List<ButtonVR>();
+    public List<DoorButtonVR> buttons = new List<DoorButtonVR>();
 
     List<int> code = new List<int> { 1, 3, 2, 4};
 
@@ -50,7 +50,7 @@ public class KeypadManager : MonoBehaviour
                 screen.text = "Rejected";
             }
             pressOrder = new List<int>();
-            foreach (ButtonVR button in buttons)
+            foreach (DoorButtonVR button in buttons)
             {
                 button.ResetButton();
             }
