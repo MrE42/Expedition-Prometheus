@@ -9,16 +9,20 @@ public class DoorManager : MonoBehaviour
     public bool doorIsOpen = false;
     public float doorSpeed = 1;
 
-    private Vector3 doorUpperClosedPose = new Vector3(0.08296894f, 0.08457943f, -0.01763998f);
-    private Vector3 doorUpperOpenPose = new Vector3(0.08296894f, 0.2295f, -0.01763998f);
+    private Vector3 doorUpperClosedPose;
+    private Vector3 doorUpperOpenPose;
 
-    private Vector3 doorLowerClosedPose = new Vector3(0.08296894f, 0.1401947f, -0.01763998f);
-    private Vector3 doorLowerOpenPose = new Vector3(0.08296894f, -0.0011f, -0.01763998f);
+    private Vector3 doorLowerClosedPose;
+    private Vector3 doorLowerOpenPose;
 
     // Start is called before the first frame update
     void Start()
     {
+        Vector3 doorUpperClosedPose = new Vector3(upperDoor.transform.localPosition.x, upperDoor.transform.localPosition.y, upperDoor.transform.localPosition.z);
+        Vector3 doorUpperOpenPose = new Vector3(lowerDoor.transform.localPosition.x, lowerDoor.transform.localPosition.y, lowerDoor.transform.localPosition.z);
 
+        Vector3 doorLowerClosedPose = new Vector3(lowerDoor.transform.localPosition.x, lowerDoor.transform.localPosition.y, lowerDoor.transform.localPosition.z);
+        Vector3 doorLowerOpenPose = new Vector3(lowerDoor.transform.localPosition.x, lowerDoor.transform.localPosition.y, lowerDoor.transform.localPosition.z);
     }
 
     // Update is called once per frame
@@ -36,6 +40,9 @@ public class DoorManager : MonoBehaviour
 
     void OpenDoor()
     {
+        upperDoor.transform.localPosition = doorUpperOpenPose;
+        lowerDoor.transform.localPosition = doorLowerOpenPose;
+        /*
         if (upperDoor.transform.position.y < doorUpperOpenPose.y)
         {
             upperDoor.transform.position = new Vector3(upperDoor.transform.position.x, upperDoor.transform.position.y + (doorSpeed * Time.deltaTime), upperDoor.transform.position.z);
@@ -43,10 +50,13 @@ public class DoorManager : MonoBehaviour
         if (lowerDoor.transform.position.y > doorLowerOpenPose.y)
         {
             lowerDoor.transform.position = new Vector3(lowerDoor.transform.position.x, lowerDoor.transform.position.y - (doorSpeed * Time.deltaTime), lowerDoor.transform.position.z);
-        }
+        }*/
     }
     void CloseDoor()
     {
+        upperDoor.transform.localPosition = doorUpperClosedPose;
+        lowerDoor.transform.localPosition = doorLowerClosedPose;
+        /*
         if (upperDoor.transform.position.y > doorUpperClosedPose.y)
         {
             upperDoor.transform.position = new Vector3(upperDoor.transform.position.x, upperDoor.transform.position.y - (doorSpeed * Time.deltaTime), upperDoor.transform.position.z);
@@ -54,6 +64,6 @@ public class DoorManager : MonoBehaviour
         if (lowerDoor.transform.position.y < doorLowerClosedPose.y)
         {
             lowerDoor.transform.position = new Vector3(lowerDoor.transform.position.x, lowerDoor.transform.position.y + (doorSpeed * Time.deltaTime), lowerDoor.transform.position.z);
-        }
+        }*/
     }
 }
