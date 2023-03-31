@@ -15,14 +15,18 @@ public class DoorManager : MonoBehaviour
     private Vector3 doorLowerClosedPose;
     private Vector3 doorLowerOpenPose;
 
+    public float doorOffset = 0.14f;
+    private float doorStartMovement = Time.time;
+    public float doorMovementPercentage = 0;
+    private bool lastDoorIsOpen = false;
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 doorUpperClosedPose = new Vector3(upperDoor.transform.localPosition.x, upperDoor.transform.localPosition.y, upperDoor.transform.localPosition.z);
-        Vector3 doorUpperOpenPose = new Vector3(lowerDoor.transform.localPosition.x, lowerDoor.transform.localPosition.y, lowerDoor.transform.localPosition.z);
+        doorUpperClosedPose = new Vector3(upperDoor.transform.localPosition.x, upperDoor.transform.localPosition.y, upperDoor.transform.localPosition.z);
+        doorUpperOpenPose = new Vector3(upperDoor.transform.localPosition.x, upperDoor.transform.localPosition.y+doorOffset, upperDoor.transform.localPosition.z);
 
-        Vector3 doorLowerClosedPose = new Vector3(lowerDoor.transform.localPosition.x, lowerDoor.transform.localPosition.y, lowerDoor.transform.localPosition.z);
-        Vector3 doorLowerOpenPose = new Vector3(lowerDoor.transform.localPosition.x, lowerDoor.transform.localPosition.y, lowerDoor.transform.localPosition.z);
+        doorLowerClosedPose = new Vector3(lowerDoor.transform.localPosition.x, lowerDoor.transform.localPosition.y, lowerDoor.transform.localPosition.z);
+        doorLowerOpenPose = new Vector3(lowerDoor.transform.localPosition.x, lowerDoor.transform.localPosition.y-doorOffset, lowerDoor.transform.localPosition.z);
     }
 
     // Update is called once per frame
@@ -30,40 +34,34 @@ public class DoorManager : MonoBehaviour
     {
         if (doorIsOpen)
         {
-            OpenDoor();
+            doorMovementPercentage -= 0.01f*doorSpeed;
+            lastDoorIsOpen = doorIsOpen;
+            doorMovementPercentage = Mathf.Clamp(doorMovementPercentage, 0, 1);
+            upperDoor.transform.localPosition = Vector3.Lerp(doorUpperClosedPose, doorUpperOpenPose, doorMovementPercentage);
+            lowerDoor.transform.localPosition = Vector3.Lerp(doorLowerClosedPose, doorLowerOpenPose, doorMovementPercentage);
         }
         else
         {
-            CloseDoor();
+            doorMovementPercentage += 0.01f*doorSpeed;
+            lastDoorIsOpen = doorIsOpen;
+            doorMovementPercentage = Mathf.Clamp(doorMovementPercentage, 0, 1);
+            upperDoor.transform.localPosition = Vector3.Lerp(doorUpperClosedPose, doorUpperOpenPose, doorMovementPercentage);
+            lowerDoor.transform.localPosition = Vector3.Lerp(doorLowerClosedPose, doorLowerOpenPose, doorMovementPercentage);
         }
     }
 
     void OpenDoor()
     {
-        upperDoor.transform.localPosition = doorUpperOpenPose;
-        lowerDoor.transform.localPosition = doorLowerOpenPose;
-        /*
-        if (upperDoor.transform.position.y < doorUpperOpenPose.y)
-        {
-            upperDoor.transform.position = new Vector3(upperDoor.transform.position.x, upperDoor.transform.position.y + (doorSpeed * Time.deltaTime), upperDoor.transform.position.z);
-        }
-        if (lowerDoor.transform.position.y > doorLowerOpenPose.y)
-        {
-            lowerDoor.transform.position = new Vector3(lowerDoor.transform.position.x, lowerDoor.transform.position.y - (doorSpeed * Time.deltaTime), lowerDoor.transform.position.z);
-        }*/
+        upperDoor.transform.localPosition = Vector3.Lerp(doorUpperClosedPose, doorUpperOpenPose, doorMovementPercentage);
+        lowerDoor.transform.localPosition = Vector3.Lerp(doorLowerClosedPose, doorLowerOpenPose, doorMovementPercentage); // eg 5.1-5 then the other side needs to be .9
+        //upperDoor.transform.localPosition = Vector3.Lerp(upperDoor.transform.position, doorUpperOpenPose, Time.time-doorStartMovement);
+        //lowerDoor.transform.localPosition = Vector3.Lerp(lowerDoor.transform.position, doorLowerOpenPose, Time.time-doorStartMovement);
     }
     void CloseDoor()
     {
-        upperDoor.transform.localPosition = doorUpperClosedPose;
-        lowerDoor.transform.localPosition = doorLowerClosedPose;
-        /*
-        if (upperDoor.transform.position.y > doorUpperClosedPose.y)
-        {
-            upperDoor.transform.position = new Vector3(upperDoor.transform.position.x, upperDoor.transform.position.y - (doorSpeed * Time.deltaTime), upperDoor.transform.position.z);
-        }
-        if (lowerDoor.transform.position.y < doorLowerClosedPose.y)
-        {
-            lowerDoor.transform.position = new Vector3(lowerDoor.transform.position.x, lowerDoor.transform.position.y + (doorSpeed * Time.deltaTime), lowerDoor.transform.position.z);
-        }*/
+        upperDoor.transform.localPosition = Vector3.Lerp(doorUpperOpenPose, doorUpperClosedPose, doorMovementPercentage);
+        lowerDoor.transform.localPosition = Vector3.Lerp(doorLowerOpenPose, doorLowerClosedPose, doorMovementPercentage);
+        //upperDoor.transform.localPosition = Vector3.Lerp(upperDoor.transform.position, doorUpperClosedPose, Time.time - doorStartMovement);
+        //lowerDoor.transform.localPosition = Vector3.Lerp(lowerDoor.transform.position, doorLowerClosedPose, Time.time - doorStartMovement);
     }
 }

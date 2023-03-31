@@ -12,20 +12,12 @@ public class DoorControllButton : MonoBehaviour
     private Vector3 buttonDown;
     void Start()
     {
-        buttonUp = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        buttonDown = new Vector3(transform.position.x, transform.position.y - .011f, transform.position.z);
+
     }
 
     void Update()
     {
-        if (buttonClicked)
-        {
-            transform.position = buttonDown;
-        }
-        else
-        {
-            transform.position = buttonUp;
-        }
+
     }
 
     private void OnTriggerEnter(Collider other)
