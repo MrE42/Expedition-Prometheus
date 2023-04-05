@@ -13,6 +13,7 @@ public class EnemyAi : MonoBehaviour
     public float idleSpeed = 0;
     public float attackDistance = 1.5f;
     public bool die = false;
+    private float deathStart = 0;
 
     void Start()
     {
@@ -27,15 +28,14 @@ public class EnemyAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (die)
         {
-            Rigidbody[] bodies = gameObject.GetComponentsInChildren<Rigidbody>();
-            foreach (Rigidbody chRB in bodies)
+            if (Time.time-deathStart>1.5f)
             {
-                chRB.isKinematic = false;
+                gameObject.SetActive(false);
             }
-            anim.enabled = false;
+            anim.CrossFade("Death", 1.5f);
+            rb.velocity = new Vector3(0, 0, 0);
         }
         else
         {
@@ -61,5 +61,14 @@ public class EnemyAi : MonoBehaviour
         float xDiff = v1.x - v2.x;
         float zDiff = v1.z - v2.z;
         return Mathf.Sqrt((xDiff * xDiff) + (zDiff * zDiff));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            die = true;
+            deathStart = Time.time;
+        }
     }
 }
