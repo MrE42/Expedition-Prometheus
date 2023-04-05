@@ -39,10 +39,13 @@ public class EnemyAi : MonoBehaviour
         }
         else
         {
-            if (vector2DDistance(gameObject.transform.position, target.transform.position) < attackDistance)
+            if (Vector3.Distance(gameObject.transform.position, target.transform.position) < attackDistance)
             {
                 anim.CrossFade("Attack1", 1.5f);
                 rb.velocity = new Vector3(0,0,0);
+                Vector3 lookAtYZeroed = target.transform.position;
+                lookAtYZeroed.y = gameObject.transform.position.y;
+                gameObject.transform.LookAt(lookAtYZeroed, Vector3.up);
             }
             else
             {
@@ -50,8 +53,10 @@ public class EnemyAi : MonoBehaviour
                 Vector3 enemyToTarget = target.transform.position - gameObject.transform.position;
                 Vector3 movementVector = enemyToTarget.normalized * walkingSpeed * Time.deltaTime;
                 movementVector.y = 0;
-                //gameObject.transform.position += movementVector;
                 rb.velocity = movementVector;
+                Vector3 lookAtYZeroed = target.transform.position;
+                lookAtYZeroed.y = gameObject.transform.position.y;
+                gameObject.transform.LookAt(lookAtYZeroed, Vector3.up);
             }
         }
     }
