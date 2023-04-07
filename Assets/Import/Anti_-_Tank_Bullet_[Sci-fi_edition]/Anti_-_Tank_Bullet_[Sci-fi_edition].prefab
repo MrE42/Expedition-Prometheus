@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6770545199790458822}
   - component: {fileID: 7295831278833748475}
-  - component: {fileID: 3262556986751420514}
+  - component: {fileID: 5863560993069039677}
+  - component: {fileID: 7166247593648372128}
   m_Layer: 0
   m_Name: Anti_-_Tank_Bullet_[Sci-fi_edition]
   m_TagString: Bullet
@@ -50,8 +51,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!135 &3262556986751420514
-SphereCollider:
+--- !u!136 &5863560993069039677
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -60,9 +61,24 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0.4}
+  m_Radius: 0.10722858
+  m_Height: 0.80199814
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.0047306996, z: 0.45327413}
+--- !u!136 &7166247593648372128
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836310144979818133}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.10722858
+  m_Height: 0.80199814
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.0047306996, z: 0.45327413}
 --- !u!1 &1416481345211208153
 GameObject:
   m_ObjectHideFlags: 0

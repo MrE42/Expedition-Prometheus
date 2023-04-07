@@ -7,23 +7,27 @@ public class EnemyAi : MonoBehaviour
     private Animation anim;
     private Rigidbody rb;
     public GameObject target;
-    public float walkingSpeed = 0.9f;
-    //public float runningSpeed = 1.5f;
+    public float walkingSpeed = 80.9f;
+    public float runningSpeed = 200.5f;
     public float idleSpeed = 0;
     public float attackDistance = 1.5f;
     public bool die = false;
     private float deathStart = 0;
     private float stumbleStart = 0;
-    public int health = 3;
+    public int startingHealth = 3;
+    public int health;
+    private bool playingDeathAnim = false;
 
     void Start()
     {
+        health = startingHealth;
         anim = gameObject.GetComponent<Animation>();
         rb = gameObject.GetComponent<Rigidbody>();
         foreach (AnimationState state in anim)
         {
             state.speed = 1.0F;
         }
+        anim["Death"].wrapMode = WrapMode.Once;
     }
 
     // Update is called once per frame
@@ -31,16 +35,22 @@ public class EnemyAi : MonoBehaviour
     {
         if (die)
         {
-            if (Time.time-deathStart>1.5f)
+            rb.velocity = new Vector3(0, 0, 0);
+            if (!playingDeathAnim)
             {
+                playingDeathAnim = true;
+                anim.Play("Death");
+            }
+            if (Time.time-deathStart>0.95f)
+            {
+                Debug.Log("dead");
                 gameObject.SetActive(false);
             }
-            anim.CrossFade("Death", 1.5f);
-            rb.velocity = new Vector3(0, 0, 0);
+            
         }
         else
         {
-            if (Time.time-stumbleStart < 3) // When the stumble start time is set the enemy will pause for x seconds
+            if (Time.time-stumbleStart < 1) // When the stumble start time is set the enemy will pause for x seconds
             {
                 anim.CrossFade("Idle", .2f);
                 rb.velocity = new Vector3(0, 0, 0);
@@ -50,6 +60,15 @@ public class EnemyAi : MonoBehaviour
             {
                 anim.CrossFade("Attack1", 1.5f);
                 rb.velocity = new Vector3(0,0,0);
+                LookAtTarget();
+            }
+            else if (health<startingHealth)
+            {
+                anim.CrossFade("Run", .3f);
+                Vector3 enemyToTarget = target.transform.position - gameObject.transform.position;
+                Vector3 movementVector = enemyToTarget.normalized * runningSpeed * Time.deltaTime;
+                movementVector.y = 0;
+                rb.velocity = movementVector;
                 LookAtTarget();
             }
             else
@@ -82,6 +101,7 @@ public class EnemyAi : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
+            Debug.Log(health);
             if (health>0)
             {
                 health -= 1;
