@@ -6,14 +6,15 @@ public class EnemyAi : MonoBehaviour
 {
     private Animation anim;
     private Rigidbody rb;
-    public string animationName = "Walk";
     public GameObject target;
     public float walkingSpeed = 0.9f;
-    public float runningSpeed = 1.5f;
+    //public float runningSpeed = 1.5f;
     public float idleSpeed = 0;
     public float attackDistance = 1.5f;
     public bool die = false;
     private float deathStart = 0;
+    private float stumbleStart = 0;
+    public int health = 3;
 
     void Start()
     {
@@ -39,13 +40,17 @@ public class EnemyAi : MonoBehaviour
         }
         else
         {
-            if (Vector3.Distance(gameObject.transform.position, target.transform.position) < attackDistance)
+            if (Time.time-stumbleStart < 3) // When the stumble start time is set the enemy will pause for x seconds
+            {
+                anim.CrossFade("Idle", .2f);
+                rb.velocity = new Vector3(0, 0, 0);
+                LookAtTarget();
+            }
+            else if (Vector3.Distance(gameObject.transform.position, target.transform.position) < attackDistance)
             {
                 anim.CrossFade("Attack1", 1.5f);
                 rb.velocity = new Vector3(0,0,0);
-                Vector3 lookAtYZeroed = target.transform.position;
-                lookAtYZeroed.y = gameObject.transform.position.y;
-                gameObject.transform.LookAt(lookAtYZeroed, Vector3.up);
+                LookAtTarget();
             }
             else
             {
@@ -54,11 +59,16 @@ public class EnemyAi : MonoBehaviour
                 Vector3 movementVector = enemyToTarget.normalized * walkingSpeed * Time.deltaTime;
                 movementVector.y = 0;
                 rb.velocity = movementVector;
-                Vector3 lookAtYZeroed = target.transform.position;
-                lookAtYZeroed.y = gameObject.transform.position.y;
-                gameObject.transform.LookAt(lookAtYZeroed, Vector3.up);
+                LookAtTarget();
             }
         }
+    }
+
+    private void LookAtTarget()
+    {
+        Vector3 lookAtYZeroed = target.transform.position;
+        lookAtYZeroed.y = gameObject.transform.position.y;
+        gameObject.transform.LookAt(lookAtYZeroed, Vector3.up);
     }
 
     private float vector2DDistance(Vector3 v1, Vector3 v2)
@@ -72,8 +82,15 @@ public class EnemyAi : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            die = true;
-            deathStart = Time.time;
+            if (health>0)
+            {
+                health -= 1;
+                stumbleStart = Time.time;
+            }else
+            {
+                die = true;
+                deathStart = Time.time;
+            }
         }
     }
 }
