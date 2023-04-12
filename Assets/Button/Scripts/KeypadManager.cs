@@ -10,7 +10,7 @@ public class KeypadManager : MonoBehaviour
     public List<int> pressOrder = new List<int>();
     public List<DoorButtonVR> buttons = new List<DoorButtonVR>();
 
-    List<int> code = new List<int> { 1, 3, 2, 4};
+    public List<int> code = new List<int> { 1, 3, 2, 4};
 
     // Start is called before the first frame update
     void Start()
