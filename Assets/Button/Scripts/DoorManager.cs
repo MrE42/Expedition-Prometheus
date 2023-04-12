@@ -16,7 +16,7 @@ public class DoorManager : MonoBehaviour
     private Vector3 doorLowerOpenPose;
 
     public float doorOffset = 0.14f;
-    private float doorStartMovement = Time.time;
+    private float doorStartMovement = 0;
     public float doorMovementPercentage = 0;
     private bool lastDoorIsOpen = false;
     // Start is called before the first frame update

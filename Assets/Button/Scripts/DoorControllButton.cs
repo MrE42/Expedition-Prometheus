@@ -24,16 +24,18 @@ public class DoorControllButton : MonoBehaviour
     {
         if (other.gameObject == handLeft || other.gameObject == handRight)
         {
-            buttonClicked = true;
-            doorManager.doorIsOpen = true;
+            if (!buttonClicked)
+            {
+                buttonClicked = true;
+                doorManager.doorIsOpen = !doorManager.doorIsOpen;
+            }
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == handLeft || other.gameObject == handRight)
         {
-            buttonClicked = false;
-            doorManager.doorIsOpen = false;
+                buttonClicked = false;
         }
     }
 }
