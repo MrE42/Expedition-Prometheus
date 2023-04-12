@@ -14,7 +14,7 @@ public class EnemyAi : MonoBehaviour
     public bool die = false;
     private float deathStart = 0;
     private float stumbleStart = 0;
-    public int startingHealth = 3;
+    public int startingHealth = 4;
     public int health;
     private bool playingDeathAnim = false;
 
@@ -102,11 +102,12 @@ public class EnemyAi : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             Debug.Log(health);
-            if (health>0)
+            health -= other.gameObject.GetComponent<BulletDamage>().damage;
+            if (health > 0)
             {
-                health -= 1;
                 stumbleStart = Time.time;
-            }else
+            }
+            else
             {
                 die = true;
                 deathStart = Time.time;
