@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,11 @@ public class FireBulletOnActivate : MonoBehaviour
     public float fireSpeed = 20;
 
     public FuseChecker sockets;
-    public bool ok = true;
+    public bool ok = false;
+    public bool timer = false;
+
+    public float BulletTime = 0;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -26,15 +31,74 @@ public class FireBulletOnActivate : MonoBehaviour
         {
             ok = sockets.killable;
         }
+        else
+        {
+            ok = true;
+        }
+        
+        if (timer)
+        {
+            BulletTime += Time.deltaTime;
+        }
     }
 
-    public void FireBullet(ActivateEventArgs arg)
+    public void BullletTimeStart(ActivateEventArgs arg)
+    {
+        if (ok)
+        {
+            timer = true;
+            BulletTime = Time.deltaTime;
+        }
+    }
+    
+    public void BullletTimeEnd(DeactivateEventArgs arg)
+    {
+        if (ok)
+        {
+            timer = false;
+            if (BulletTime < 0.5)
+            {
+                FireBullet();
+            }
+            else
+            {
+                FireChargedShot();
+            }
+        }
+    }
+    
+
+    public void FireBullet()
     {
         if (ok)
         {
             GameObject spawnedBullet = Instantiate(bullet);
             spawnedBullet.transform.position = spawnPoint.position;
             spawnedBullet.transform.rotation = spawnPoint.rotation;
+            spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * fireSpeed;
+            Destroy(spawnedBullet, 5);
+            sockets.total_charge -= 0.25f;
+        }
+
+    }
+    
+    public void FireChargedShot()
+    {
+        if (ok)
+        {
+            GameObject spawnedBullet = Instantiate(bullet);
+            spawnedBullet.transform.position = spawnPoint.position;
+            spawnedBullet.transform.rotation = spawnPoint.rotation;
+            if (BulletTime >= 4)
+            {
+                spawnedBullet.GetComponent<BulletDamage>().damage = 4;
+                sockets.total_charge -= 1f;
+            }
+            else
+            {
+                spawnedBullet.GetComponent<BulletDamage>().damage = (int) MathF.Floor(BulletTime);
+                sockets.total_charge -= 0.25f * MathF.Floor(BulletTime);
+            }
             spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * fireSpeed;
             Destroy(spawnedBullet, 5);
         }

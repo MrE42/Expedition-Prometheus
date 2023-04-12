@@ -831,6 +831,7 @@ MonoBehaviour:
   - {fileID: 53125685}
   fusesInserted: 0
   killable: 0
+  total_charge: 0
 --- !u!114 &423095573 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1912529660839033723, guid: 4667c0e0527bac443b7d25f4b9e6f41a,
@@ -1804,7 +1805,7 @@ Transform:
   - {fileID: 2044823598}
   - {fileID: 1034215774}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &946217917
 PrefabInstance:
@@ -1909,6 +1910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb182f3f65768b4799fa820cddc91fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charge: 1
 --- !u!1 &1034215773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,6 +2062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb182f3f65768b4799fa820cddc91fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charge: 1
 --- !u!114 &1373562715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,6 +2075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb182f3f65768b4799fa820cddc91fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charge: 1
 --- !u!1 &1396399810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2901,8 +2905,10 @@ MonoBehaviour:
   bullet: {fileID: 836310144979818133, guid: b782d2373217bc5488409fccd1fec7bc, type: 3}
   spawnPoint: {fileID: 716309880}
   fireSpeed: 20
-  sockets: {fileID: 0}
-  ok: 1
+  sockets: {fileID: 350832543}
+  ok: 0
+  timer: 0
+  BulletTime: 0
 --- !u!114 &1441344567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2959,9 +2965,9 @@ MonoBehaviour:
   m_Activated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2134964054}
+      - m_Target: {fileID: 1441344566}
         m_TargetAssemblyTypeName: FireBulletOnActivate, Assembly-CSharp
-        m_MethodName: FireBullet
+        m_MethodName: BullletTimeStart
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2973,7 +2979,19 @@ MonoBehaviour:
         m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1441344566}
+        m_TargetAssemblyTypeName: FireBulletOnActivate, Assembly-CSharp
+        m_MethodName: BullletTimeEnd
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
@@ -3702,6 +3720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb182f3f65768b4799fa820cddc91fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charge: 1
 --- !u!114 &1553661736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3714,6 +3733,95 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb182f3f65768b4799fa820cddc91fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charge: 1
+--- !u!1001 &1712974187
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 836310144979818133, guid: b782d2373217bc5488409fccd1fec7bc,
+        type: 3}
+      propertyPath: m_Name
+      value: Anti_-_Tank_Bullet_[Sci-fi_edition]
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770545199790458822, guid: b782d2373217bc5488409fccd1fec7bc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770545199790458822, guid: b782d2373217bc5488409fccd1fec7bc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.24006718
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770545199790458822, guid: b782d2373217bc5488409fccd1fec7bc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.16792607
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770545199790458822, guid: b782d2373217bc5488409fccd1fec7bc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.70113707
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770545199790458822, guid: b782d2373217bc5488409fccd1fec7bc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770545199790458822, guid: b782d2373217bc5488409fccd1fec7bc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770545199790458822, guid: b782d2373217bc5488409fccd1fec7bc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770545199790458822, guid: b782d2373217bc5488409fccd1fec7bc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770545199790458822, guid: b782d2373217bc5488409fccd1fec7bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770545199790458822, guid: b782d2373217bc5488409fccd1fec7bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770545199790458822, guid: b782d2373217bc5488409fccd1fec7bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b782d2373217bc5488409fccd1fec7bc, type: 3}
+--- !u!1 &1712974188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 836310144979818133, guid: b782d2373217bc5488409fccd1fec7bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1712974187}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1712974189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712974188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e0e8b552d722b4fb59d954169a0e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &1721096986 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5266785677919700964, guid: 1b08e43fac0b05c40a1e052361e081e8,
@@ -3890,6 +3998,7 @@ MonoBehaviour:
   - {fileID: 859387305}
   fusesInserted: 0
   killable: 0
+  total_charge: 0
 --- !u!1 &1730626148
 GameObject:
   m_ObjectHideFlags: 0
@@ -4302,7 +4411,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &2051895157
 MonoBehaviour:
@@ -4679,6 +4788,8 @@ MonoBehaviour:
   fireSpeed: 20
   sockets: {fileID: 0}
   ok: 1
+  timer: 0
+  BulletTime: 0
 --- !u!54 &2134964055
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4934,7 +5045,7 @@ Transform:
   - {fileID: 6892581657451551138}
   - {fileID: 1721276600}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &550984546632162901
 MeshFilter:
