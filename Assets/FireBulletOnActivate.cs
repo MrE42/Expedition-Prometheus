@@ -16,6 +16,8 @@ public class FireBulletOnActivate : MonoBehaviour
     public bool timer = false;
 
     public float BulletTime = 0;
+
+    public float fusePrecent = 0.25f;
     
 
     // Start is called before the first frame update
@@ -77,8 +79,8 @@ public class FireBulletOnActivate : MonoBehaviour
             spawnedBullet.transform.position = spawnPointSmall.position;
             spawnedBullet.transform.rotation = spawnPointSmall.rotation;
             spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPointSmall.forward * fireSpeed;
+            sockets.FuseDrain(fusePrecent);
             Destroy(spawnedBullet, 5);
-            sockets.total_charge -= 0.25f;
         }
 
     }
@@ -90,15 +92,15 @@ public class FireBulletOnActivate : MonoBehaviour
             GameObject spawnedBullet = Instantiate(bullet);
             spawnedBullet.transform.position = spawnPointCharged.position;
             spawnedBullet.transform.rotation = spawnPointCharged.rotation;
-            if (BulletTime >= 4)
+            if (BulletTime * fusePrecent >= sockets.total_charge)
             {
-                spawnedBullet.GetComponent<BulletDamage>().damage = 4;
-                sockets.total_charge -= 1f;
+                spawnedBullet.GetComponent<BulletDamage>().damage = (int) MathF.Floor(sockets.total_charge);
+                sockets.FuseDrain(sockets.total_charge);
             }
             else
             {
                 spawnedBullet.GetComponent<BulletDamage>().damage = (int) MathF.Floor(BulletTime);
-                sockets.total_charge -= 0.25f * MathF.Floor(BulletTime);
+                sockets.FuseDrain(fusePrecent * MathF.Floor(BulletTime));
             }
             spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPointCharged.forward * fireSpeed;
             Destroy(spawnedBullet, 5);

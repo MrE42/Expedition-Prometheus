@@ -26,12 +26,36 @@ public class FuseChecker : MonoBehaviour
                 total_charge += interactors[i].GetOldestInteractableSelected().transform.gameObject.GetComponent<FusePower>().charge;
             }
         }
+
         if (fusesInserted >= requiredFuses)
         {
             killable = true;
         } else
         {
             killable = false;
+        }
+    }
+
+    public void FuseDrain(float used)
+    {
+        total_charge -= used;
+        for (int i = 0; i < interactors.Count; i++)
+        {
+            if (interactors[i].hasSelection)
+            {
+                if (total_charge >= 1)
+                {
+                    interactors[i].GetOldestInteractableSelected().transform.gameObject.GetComponent<FusePower>()
+                        .charge = 1;
+                    total_charge--;
+                }
+                else
+                {
+                    interactors[i].GetOldestInteractableSelected().transform.gameObject.GetComponent<FusePower>()
+                        .charge = total_charge;
+                    total_charge = 0;
+                }
+            }
         }
     }
 }
