@@ -91,7 +91,7 @@ public class FireBulletOnActivate : MonoBehaviour
         {
             GameObject spawnedBullet = Instantiate(bullet);
             spawnedBullet.transform.position = spawnPointCharged.position;
-            spawnedBullet.transform.rotation = spawnPointCharged.rotation;
+            spawnedBullet.transform.rotation = spawnPointSmall.rotation;
             if (BulletTime * fusePrecent >= sockets.total_charge)
             {
                 spawnedBullet.GetComponent<BulletDamage>().damage = (int) MathF.Floor(sockets.total_charge);
@@ -102,7 +102,7 @@ public class FireBulletOnActivate : MonoBehaviour
                 spawnedBullet.GetComponent<BulletDamage>().damage = (int) MathF.Floor(BulletTime);
                 sockets.FuseDrain(fusePrecent * MathF.Floor(BulletTime));
             }
-            spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPointCharged.forward * fireSpeed;
+            spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPointSmall.forward * fireSpeed;
             Destroy(spawnedBullet, 5);
         }
 
