@@ -7,7 +7,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class FireBulletOnActivate : MonoBehaviour
 {
     public GameObject bullet;
-    public Transform spawnPoint;
+    public Transform spawnPointSmall;
+    public Transform spawnPointCharged;
     public float fireSpeed = 20;
 
     public FuseChecker sockets;
@@ -73,9 +74,9 @@ public class FireBulletOnActivate : MonoBehaviour
         if (ok)
         {
             GameObject spawnedBullet = Instantiate(bullet);
-            spawnedBullet.transform.position = spawnPoint.position;
-            spawnedBullet.transform.rotation = spawnPoint.rotation;
-            spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * fireSpeed;
+            spawnedBullet.transform.position = spawnPointSmall.position;
+            spawnedBullet.transform.rotation = spawnPointSmall.rotation;
+            spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPointSmall.forward * fireSpeed;
             Destroy(spawnedBullet, 5);
             sockets.total_charge -= 0.25f;
         }
@@ -87,8 +88,8 @@ public class FireBulletOnActivate : MonoBehaviour
         if (ok)
         {
             GameObject spawnedBullet = Instantiate(bullet);
-            spawnedBullet.transform.position = spawnPoint.position;
-            spawnedBullet.transform.rotation = spawnPoint.rotation;
+            spawnedBullet.transform.position = spawnPointCharged.position;
+            spawnedBullet.transform.rotation = spawnPointCharged.rotation;
             if (BulletTime >= 4)
             {
                 spawnedBullet.GetComponent<BulletDamage>().damage = 4;
@@ -99,7 +100,7 @@ public class FireBulletOnActivate : MonoBehaviour
                 spawnedBullet.GetComponent<BulletDamage>().damage = (int) MathF.Floor(BulletTime);
                 sockets.total_charge -= 0.25f * MathF.Floor(BulletTime);
             }
-            spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * fireSpeed;
+            spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPointCharged.forward * fireSpeed;
             Destroy(spawnedBullet, 5);
         }
 

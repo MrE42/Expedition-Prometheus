@@ -11,6 +11,7 @@ public class FuseChecker : MonoBehaviour
     public int fusesInserted = 0;
     public bool killable = false;
     public float total_charge = 0;
+    public int requiredFuses = 5;
 
     // Update is called once per frame
     void Update()
@@ -25,7 +26,7 @@ public class FuseChecker : MonoBehaviour
                 total_charge += interactors[i].GetOldestInteractableSelected().transform.gameObject.GetComponent<FusePower>().charge;
             }
         }
-        if (fusesInserted == 5)
+        if (fusesInserted >= requiredFuses)
         {
             killable = true;
         } else
