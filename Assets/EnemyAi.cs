@@ -17,6 +17,7 @@ public class EnemyAi : MonoBehaviour
     public int startingHealth = 4;
     public int health;
     private bool playingDeathAnim = false;
+    public LevelControl levelController;
 
     void Start()
     {
@@ -43,7 +44,8 @@ public class EnemyAi : MonoBehaviour
             }
             if (Time.time-deathStart>0.95f)
             {
-                Debug.Log("dead");
+                //Debug.Log("dead");
+                levelController.numAliveEnemys -= 1;
                 gameObject.SetActive(false);
             }
             

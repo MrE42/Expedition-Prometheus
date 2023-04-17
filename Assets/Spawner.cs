@@ -5,9 +5,10 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject enemy1;
-    private Queue<int> spawnQueue;
-    public SceneManager sm;
+    private Queue<int> spawnQueue = new Queue<int> { };
+    public LevelControl levelControler;
     public bool allEnemysDead = true;
+    private float lastSpawnTime = -5;
 
 
     // Start is called before the first frame update
@@ -19,9 +20,11 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time % sm.spawnRate == 0 && spawnQueue.Count>0)
+
+        if ((Time.time - lastSpawnTime > levelControler.spawnRate) && spawnQueue.Count>0)
         {
             SpawnEnemy(spawnQueue.Dequeue());
+            lastSpawnTime = Time.time;
         }
     }
 
@@ -35,7 +38,8 @@ public class Spawner : MonoBehaviour
         if (type==1)
         {
             GameObject spawnedEnemy = Instantiate(enemy1);
-            //spawnedBullet.transform.position = spawnPointSmall.position;
+            levelControler.numAliveEnemys = levelControler.numAliveEnemys + 1;
+            spawnedEnemy.transform.position = gameObject.transform.position;
             //spawnedBullet.transform.rotation = spawnPointSmall.rotation;
             //Destroy(spawnedBullet, 5);
         }
