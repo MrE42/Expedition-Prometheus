@@ -3,52 +3,7 @@ guid: f803d7918ae66d4409de04e9432d18ff
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Allu-dirt.001
-    second: {fileID: 2100000, guid: 4d9382c81bb1af94b9b4300ad8a4c5e0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Sicherung-Gelb
-    second: {fileID: 2100000, guid: 776b64df453e10343880a567732a2ea8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Sicherung-Naturel
-    second: {fileID: 2100000, guid: c2d83194692e7354f8ca976f54ea39fe, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Sicherung-Orange
-    second: {fileID: 2100000, guid: dd52526c4c9d23a4da876318bc6ac615, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Sicherung-blau
-    second: {fileID: 2100000, guid: b9833a82a9d937e4cbfd922c73d7129b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "Sicherung-gr\xFCn"
-    second: {fileID: 2100000, guid: e5ca6f9e2e273b941bd8835e632e6acb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "Sicherung-gr\xFCn-hell"
-    second: {fileID: 2100000, guid: 7cbfccb04fc93c64892ab19822e6ad0b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Sicherung-orange-hell
-    second: {fileID: 2100000, guid: d33473cdf2ba1a84bb4fb0603aaa8a5d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Sicherung-rot
-    second: {fileID: 2100000, guid: 27f2b0eab23f62948b261c237672fb75, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -80,7 +35,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 4
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -133,7 +88,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 4
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
