@@ -48,10 +48,10 @@ public class SceneManager : MonoBehaviour
 
     bool IsCurrentWaveFinished()
     {
-        if ()
-        {
+        //if ()
+        //{
 
-        }
+        //}
         return false;
     }
 
