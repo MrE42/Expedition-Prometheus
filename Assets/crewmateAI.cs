@@ -15,6 +15,7 @@ public class crewmateAI : MonoBehaviour
     public int startingHealth = 3;
     public int health;
     private bool playingDeathAnim = false;
+    public float animationSpeed = 1.0f;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class crewmateAI : MonoBehaviour
         foreach (AnimationState state in anim)
         {
             state.speed = 1.0F;
+            state.wrapMode = WrapMode.Loop;
         }
         anim["death"].wrapMode = WrapMode.Once;
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3166,7 +3166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1309486516299566, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4467757482891228, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
       propertyPath: m_RootOrder
@@ -7219,7 +7219,7 @@ Animator:
   m_GameObject: {fileID: 919132147724676688}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6bcf89cdf84230a4995c8963303cc13f, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7238,7 +7238,8 @@ Animation:
   m_GameObject: {fileID: 919132147724676688}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 1827226128182048838, guid: f746ed5ba29d525499285e2882bf3c86,
+    type: 3}
   m_Animations:
   - {fileID: 1827226128182048838, guid: 713275fe31e69c04c9d1b7adf09d3a39, type: 3}
   - {fileID: 1827226128182048838, guid: 1b4667952bef90f4aafbf7bf263086bf, type: 3}
@@ -7291,11 +7292,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1614744091}
-  walkingSpeed: 110
+  walkingSpeed: 350
   attackDistance: 1.5
   die: 0
   startingHealth: 3
   health: 0
+  animationSpeed: 0.8
 --- !u!1001 &1916795800
 PrefabInstance:
   m_ObjectHideFlags: 0
