@@ -10,27 +10,28 @@ public class LevelControl : MonoBehaviour
     public Spawner spawnerRight;
     public Spawner spawnerLeft;
 
-    private int currentWaveNumber = -1;
+    public int currentWaveNumber = -1;
     public bool startWave = false;
     public bool currentWaveFinished = true;
-    public int numAliveEnemys = 1;
+    public int numAliveEnemys = 0;
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //currentWaveFinished = IsCurrentWaveFinished();
-        if (numAliveEnemys==0)
+        if (numAliveEnemys==0 && startWave) // CURRENT WAVE IS FINISHED
         {
-            if (currentWaveNumber==waves.Count-1)
+            startWave = false;
+            if (currentWaveNumber==waves.Count-1) // GAME OVER
             {
-                // GAME OVER
-            }else
+                
+            }
+            else // START NEXT WAVE
             {
-                // START NEXT WAVE
                 currentWaveNumber += 1;
                 StartWave(currentWaveNumber);
             }
@@ -38,17 +39,6 @@ public class LevelControl : MonoBehaviour
         }
     }
 
-    bool IsCurrentWaveFinished()
-    {
-        if (numAliveEnemys==0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 
     void StartWave(int waveNumber)
     {

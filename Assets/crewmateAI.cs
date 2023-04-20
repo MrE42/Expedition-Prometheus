@@ -16,7 +16,7 @@ public class crewmateAI : MonoBehaviour
     public int health;
     private bool playingDeathAnim = false;
     public float animationSpeed = 1.0f;
-    public LevelControl levelController;
+    public LevelControl levelControler;
 
     void Start()
     {
@@ -39,13 +39,15 @@ public class crewmateAI : MonoBehaviour
             rb.velocity = new Vector3(0, 0, 0);
             if (!playingDeathAnim)
             {
+                Debug.Log("playing");
                 playingDeathAnim = true;
                 anim.Play("death");
+                deathStart = Time.time;
             }
             if (Time.time - deathStart > 0.95f)
             {
-                //Debug.Log("dead");
-                levelController.numAliveEnemys -= 1;
+                Debug.Log("dead");
+                levelControler.numAliveEnemys -= 1;
                 gameObject.SetActive(false);
             }
 

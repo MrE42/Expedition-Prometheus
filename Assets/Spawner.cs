@@ -8,8 +8,8 @@ public class Spawner : MonoBehaviour
     private Queue<int> spawnQueue = new Queue<int> { };
     public LevelControl levelControler;
     public bool allEnemysDead = true;
-    private float lastSpawnTime = -5;
-
+    private float lastSpawnTime = 0;
+    public GameObject enemysTarget;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +40,8 @@ public class Spawner : MonoBehaviour
             GameObject spawnedEnemy = Instantiate(enemy1);
             levelControler.numAliveEnemys = levelControler.numAliveEnemys + 1;
             spawnedEnemy.transform.position = gameObject.transform.position;
+            spawnedEnemy.GetComponent<crewmateAI>().target = enemysTarget;
+            spawnedEnemy.GetComponent<crewmateAI>().levelControler = levelControler;
             //spawnedBullet.transform.rotation = spawnPointSmall.rotation;
             //Destroy(spawnedBullet, 5);
         }
