@@ -32,7 +32,7 @@ public class FireBulletOnActivate : MonoBehaviour
     {
         if (sockets != null)
         {
-            ok = sockets.killable;
+            ok = sockets.killable && (sockets.total_charge >= 0.25f);
         }
         else
         {
@@ -92,6 +92,7 @@ public class FireBulletOnActivate : MonoBehaviour
             GameObject spawnedBullet = Instantiate(bullet);
             spawnedBullet.transform.position = spawnPointCharged.position;
             spawnedBullet.transform.rotation = spawnPointSmall.rotation;
+            BulletTime = MathF.Abs(BulletTime);
             if (BulletTime * fusePrecent >= sockets.total_charge)
             {
                 spawnedBullet.GetComponent<BulletDamage>().damage = (int) MathF.Floor(sockets.total_charge);

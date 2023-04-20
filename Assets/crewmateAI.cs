@@ -97,9 +97,9 @@ public class crewmateAI : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             Debug.Log(health);
+            health -= other.gameObject.GetComponent<BulletDamage>().damage;
             if (health > 0)
             {
-                health -= 1;
                 stumbleStart = Time.time;
             }
             else
