@@ -13830,7 +13830,7 @@ MonoBehaviour:
   lowerDoor: {fileID: 6682375028063118122}
   doorIsOpen: 0
   doorSpeed: 0.6
-  keypadManager: {fileID: 0}
+  keypadManager: {fileID: 3678035498088261059}
   doorOffset: 0.14
   doorMovementPercentage: 0
 --- !u!1 &5023856409934085208
