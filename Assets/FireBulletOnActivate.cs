@@ -18,6 +18,8 @@ public class FireBulletOnActivate : MonoBehaviour
     public float BulletTime = 0;
 
     public float fusePrecent = 0.25f;
+
+    public int maxDamage = 5;
     
 
     // Start is called before the first frame update
@@ -93,12 +95,16 @@ public class FireBulletOnActivate : MonoBehaviour
             spawnedBullet.transform.position = spawnPointCharged.position;
             spawnedBullet.transform.rotation = spawnPointSmall.rotation;
             BulletTime = MathF.Abs(BulletTime);
-            if (BulletTime * fusePrecent >= sockets.total_charge)
+            if (BulletTime * fusePrecent >= sockets.total_charge && BulletTime <= maxDamage)
             {
                 spawnedBullet.GetComponent<BulletDamage>().damage = (int) MathF.Floor(sockets.total_charge);
                 sockets.FuseDrain(sockets.total_charge);
             }
-            else
+            else if (BulletTime >= maxDamage)
+            {
+                spawnedBullet.GetComponent<BulletDamage>().damage = maxDamage;
+                sockets.FuseDrain(fusePrecent * maxDamage);
+            }else
             {
                 spawnedBullet.GetComponent<BulletDamage>().damage = (int) MathF.Floor(BulletTime);
                 sockets.FuseDrain(fusePrecent * MathF.Floor(BulletTime));
