@@ -17,6 +17,9 @@ public class FusePower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (charge < 0)
+        {
+            charge = 0;
+        }
     }
 }

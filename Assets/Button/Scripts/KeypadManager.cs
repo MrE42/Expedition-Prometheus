@@ -58,19 +58,27 @@ public class KeypadManager : MonoBehaviour
                 button.ResetButton();
             }
         }
-
+        
+        /*
+        
         if () // TODO: When the fuse is plugged into its socket
         {
             // TODO: Display code on TV, change code on keypad, and wait until that code is entered before reactivating door
             // NOTE: you don't have to code anything here I can write this part.
         }
-
-        if (fuseInteractor.) // TODO: Fuse is plugged into socket
+        */
+        if (fuseInteractor.hasSelection) // TODO: Fuse is plugged into socket
         {
             fusePower = fuseInteractor.GetOldestInteractableSelected().transform.gameObject.GetComponent<FusePower>().charge;
-        }else
+        } else
         {
             fusePower = 0;
         }
+    }
+
+    public void KeyFuseDrain(float scalar = 1f)
+    {
+        fuseInteractor.GetOldestInteractableSelected().transform.gameObject.GetComponent<FusePower>().charge -=
+            Time.deltaTime / scalar;
     }
 }

@@ -50,7 +50,7 @@ public class DoorManager : MonoBehaviour
                 doorMovementPercentage = Mathf.Clamp(doorMovementPercentage, 0, 1);
                 upperDoor.transform.localPosition = Vector3.Lerp(doorUpperClosedPose, doorUpperOpenPose, doorMovementPercentage);
                 lowerDoor.transform.localPosition = Vector3.Lerp(doorLowerClosedPose, doorLowerOpenPose, doorMovementPercentage);
-                keypadManager.fusePower. // TODO: Drain fuse
+                keypadManager.KeyFuseDrain(); // TODO: Drain fuse
             }
         }
     }
