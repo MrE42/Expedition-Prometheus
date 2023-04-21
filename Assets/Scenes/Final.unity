@@ -12190,7 +12190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de67459407424efca617cc84a2318bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screen: {fileID: 668003627}
+  keypadScreen: {fileID: 0}
   pressOrder: 
   buttons:
   - {fileID: 6734296926005845327}
@@ -12204,7 +12204,8 @@ MonoBehaviour:
   - {fileID: 7921214835964872661}
   code: 01000000030000000200000004000000
   fusePower: 0
-  fuseInteractor: {fileID: 0}
+  fuseInteractor: {fileID: 1766775452}
+  tvScreen: {fileID: 0}
 --- !u!1 &3682815312163012845
 GameObject:
   m_ObjectHideFlags: 0
