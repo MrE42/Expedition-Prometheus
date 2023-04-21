@@ -59,25 +59,22 @@ public class KeypadManager : MonoBehaviour
                 button.ResetButton();
             }
         }
-        
         /*
-        
         if () // TODO: When the fuse is plugged into its socket
         {
-            // TODO: Display code on TV, change code on keypad, and wait until that code is entered before reactivating door
-            // NOTE: you don't have to code anything here I can write this part.
-            //change code on keypad
+            // Change code on keypad
             System.Random rand = new System.Random();
             for (int i = 0; i < code.Count; i++)
             {
                 code[i] = rand.Next(0, 10); // Generate a random number between 0 and 9
             }
-            
+            // Change color of text on tv screen to white
             tvScreen.color = Color.white;
+            // Set text
             List<string> strings = code.ConvertAll<string>(x => x.ToString());
             tvScreen.text = String.Join(", ", strings);
-        }
-        */
+        }*/
+
         if (fuseInteractor.hasSelection) // TODO: Fuse is plugged into socket
         {
             fusePower = fuseInteractor.GetOldestInteractableSelected().transform.gameObject.GetComponent<FusePower>().charge;
