@@ -12040,6 +12040,7 @@ MonoBehaviour:
   - {fileID: 8639000247386364498}
   - {fileID: 6001997591226385437}
   - {fileID: 7921214835964872661}
+  fusePower: 0
   code: 01000000030000000200000004000000
 --- !u!1 &3682815312163012845
 GameObject:
@@ -13707,6 +13708,7 @@ MonoBehaviour:
   lowerDoor: {fileID: 6682375028063118122}
   doorIsOpen: 0
   doorSpeed: 0.6
+  keypadManager: {fileID: 3678035498088261059}
   doorOffset: 0.14
   doorMovementPercentage: 0
 --- !u!1 &5023856409934085208
@@ -14000,6 +14002,7 @@ MonoBehaviour:
   lowerDoor: {fileID: 8116374328576702181}
   doorIsOpen: 0
   doorSpeed: 0.6
+  keypadManager: {fileID: 0}
   doorOffset: 0.14
   doorMovementPercentage: 0
 --- !u!4 &5206713100255801547
@@ -16863,6 +16866,7 @@ MonoBehaviour:
   lowerDoor: {fileID: 2324261054695369829}
   doorIsOpen: 0
   doorSpeed: 0.6
+  keypadManager: {fileID: 0}
   doorOffset: 0.14
   doorMovementPercentage: 0
 --- !u!33 &7793442830894880039

@@ -8,6 +8,7 @@ public class DoorManager : MonoBehaviour
     public GameObject lowerDoor;
     public bool doorIsOpen = false;
     public float doorSpeed = 1;
+    public KeypadManager keypadManager;
 
     private Vector3 doorUpperClosedPose;
     private Vector3 doorUpperOpenPose;
@@ -42,14 +43,18 @@ public class DoorManager : MonoBehaviour
         }
         else
         {
-            doorMovementPercentage += 0.01f*doorSpeed;
-            lastDoorIsOpen = doorIsOpen;
-            doorMovementPercentage = Mathf.Clamp(doorMovementPercentage, 0, 1);
-            upperDoor.transform.localPosition = Vector3.Lerp(doorUpperClosedPose, doorUpperOpenPose, doorMovementPercentage);
-            lowerDoor.transform.localPosition = Vector3.Lerp(doorLowerClosedPose, doorLowerOpenPose, doorMovementPercentage);
+            if (keypadManager.fusePower > 0) // Door fuse has power in it and is plugged in
+            {
+                doorMovementPercentage += 0.01f * doorSpeed;
+                lastDoorIsOpen = doorIsOpen;
+                doorMovementPercentage = Mathf.Clamp(doorMovementPercentage, 0, 1);
+                upperDoor.transform.localPosition = Vector3.Lerp(doorUpperClosedPose, doorUpperOpenPose, doorMovementPercentage);
+                lowerDoor.transform.localPosition = Vector3.Lerp(doorLowerClosedPose, doorLowerOpenPose, doorMovementPercentage);
+                keypadManager.fusePower. // TODO: Drain fuse
+            }
         }
     }
-
+    /*
     void OpenDoor()
     {
         upperDoor.transform.localPosition = Vector3.Lerp(doorUpperClosedPose, doorUpperOpenPose, doorMovementPercentage);
@@ -63,5 +68,5 @@ public class DoorManager : MonoBehaviour
         lowerDoor.transform.localPosition = Vector3.Lerp(doorLowerOpenPose, doorLowerClosedPose, doorMovementPercentage);
         //upperDoor.transform.localPosition = Vector3.Lerp(upperDoor.transform.position, doorUpperClosedPose, Time.time - doorStartMovement);
         //lowerDoor.transform.localPosition = Vector3.Lerp(lowerDoor.transform.position, doorLowerClosedPose, Time.time - doorStartMovement);
-    }
+    }*/
 }
