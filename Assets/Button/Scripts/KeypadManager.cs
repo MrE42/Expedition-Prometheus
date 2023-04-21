@@ -8,12 +8,13 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class KeypadManager : MonoBehaviour
 {
-    public TextMeshPro screen;
+    public TextMeshPro keypadScreen;
     public List<int> pressOrder = new List<int>();
     public List<DoorButtonVR> buttons = new List<DoorButtonVR>();
     public List<int> code = new List<int> { 1, 3, 2, 4};
     public float fusePower = 0;
     public XRSocketInteractor fuseInteractor;
+    public TextMeshPro tvScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +24,9 @@ public class KeypadManager : MonoBehaviour
 
     public void DisplayCurrentCode()
     {
-        screen.color = Color.white;
+        keypadScreen.color = Color.white;
         List<string> strings = pressOrder.ConvertAll<string>(x => x.ToString());
-        screen.text = String.Join(", ", strings);
+        keypadScreen.text = String.Join(", ", strings);
     }
 
     // Update is called once per frame
@@ -44,13 +45,13 @@ public class KeypadManager : MonoBehaviour
             Debug.Log("Code is: "+codesMatch);
             if (codesMatch)
             {
-                screen.color = Color.green;
-                screen.text = "Accepted";
+                keypadScreen.color = Color.green;
+                keypadScreen.text = "Accepted";
             }
             else
             {
-                screen.color = Color.red;
-                screen.text = "Rejected";
+                keypadScreen.color = Color.red;
+                keypadScreen.text = "Rejected";
             }
             pressOrder = new List<int>();
             foreach (DoorButtonVR button in buttons)
@@ -63,6 +64,16 @@ public class KeypadManager : MonoBehaviour
         {
             // TODO: Display code on TV, change code on keypad, and wait until that code is entered before reactivating door
             // NOTE: you don't have to code anything here I can write this part.
+            //change code on keypad
+            System.Random rand = new System.Random();
+            for (int i = 0; i < code.Count; i++)
+            {
+                code[i] = rand.Next(0, 10); // Generate a random number between 0 and 9
+            }
+            
+            tvScreen.color = Color.white;
+            List<string> strings = code.ConvertAll<string>(x => x.ToString());
+            tvScreen.text = String.Join(", ", strings);
         }
 
         if (fuseInteractor.) // TODO: Fuse is plugged into socket
