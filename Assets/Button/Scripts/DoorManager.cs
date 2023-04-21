@@ -9,6 +9,7 @@ public class DoorManager : MonoBehaviour
     public bool doorIsOpen = false;
     public float doorSpeed = 1;
     public KeypadManager keypadManager;
+    public float fuseTime = 20;
 
     private Vector3 doorUpperClosedPose;
     private Vector3 doorUpperOpenPose;
@@ -50,7 +51,7 @@ public class DoorManager : MonoBehaviour
                 doorMovementPercentage = Mathf.Clamp(doorMovementPercentage, 0, 1);
                 upperDoor.transform.localPosition = Vector3.Lerp(doorUpperClosedPose, doorUpperOpenPose, doorMovementPercentage);
                 lowerDoor.transform.localPosition = Vector3.Lerp(doorLowerClosedPose, doorLowerOpenPose, doorMovementPercentage);
-                keypadManager.KeyFuseDrain(); // TODO: Drain fuse
+                keypadManager.KeyFuseDrain(fuseTime); // TODO: Drain fuse
             }
         }
     }
