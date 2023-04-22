@@ -17,6 +17,7 @@ public class HealthSystem : MonoBehaviour
 	public static HealthSystem Instance;
 
 	public FireBulletOnActivate armCannon;
+	public Text waveText;
 
 	public Image currentHealthBar;
 	public Image currentHealthGlobe;
@@ -75,6 +76,12 @@ public class HealthSystem : MonoBehaviour
 		{
 			manaPoint = 0;
 		}
+	}
+
+	public void UpdateWaveText(int wn)
+	{
+		waveText.text = "Wave: " + wn.ToString("0");
+		UpdateGraphics();
 	}
 
 	//==============================================================

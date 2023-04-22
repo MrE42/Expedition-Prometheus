@@ -10,6 +10,8 @@ public class LevelControl : MonoBehaviour
     public Spawner spawnerRight;
     public Spawner spawnerLeft;
 
+    public HealthSystem hs;
+
     public int currentWaveNumber = -1;
     public bool startWave = false;
     public bool currentWaveFinished = true;
@@ -34,6 +36,7 @@ public class LevelControl : MonoBehaviour
             {
                 currentWaveNumber += 1;
                 StartWave(currentWaveNumber);
+                hs.UpdateWaveText(currentWaveNumber);
             }
             
         }
