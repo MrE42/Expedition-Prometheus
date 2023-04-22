@@ -628,6 +628,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 031c91d2ea6ddbb458a888ab87afe9d3, type: 2}
+    - target: {fileID: 389794494850426682, guid: 6e58a58b8ef6ebd49a8b964c9cebf0a3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 50674fbaec2864e44aa100b173a1bf43, type: 2}
     - target: {fileID: 511474902697231603, guid: 6e58a58b8ef6ebd49a8b964c9cebf0a3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3226,6 +3231,7 @@ MonoBehaviour:
   timer: 0
   BulletTime: 0
   fusePrecent: 0.25
+  maxDamage: 5
 --- !u!54 &2134964055
 Rigidbody:
   m_ObjectHideFlags: 0
