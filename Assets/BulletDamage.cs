@@ -22,7 +22,7 @@ public class BulletDamage : MonoBehaviour
         }
         for (int i = 0; i < shotType.transform.childCount; i++)
         {
-            transform.GetChild(i).gameObject.GetComponent<ParticleSystem>().Play();
+            shotType.transform.GetChild(i).gameObject.GetComponent<ParticleSystem>().Play();
         }
     }
 }
