@@ -13,6 +13,10 @@ TagManager:
   - Right Hand
   - Left Hand
   - ArmCannon
+  - ManaSprite
+  - HealthSprite
+  - CannonFuse
+  - ThePod
   layers:
   - Default
   - TransparentFX
