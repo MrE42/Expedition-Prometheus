@@ -20,9 +20,6 @@ public class BulletDamage : MonoBehaviour
         {
             shotType = chargedShot;
         }
-        for (int i = 0; i < shotType.transform.childCount; i++)
-        {
-            shotType.transform.GetChild(i).gameObject.GetComponent<ParticleSystem>().Play();
-        }
+        shotType.GetComponent<ParticleSystem>().Play();
     }
 }

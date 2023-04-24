@@ -78,6 +78,7 @@ public class FireBulletOnActivate : MonoBehaviour
         if (ok)
         {
             GameObject spawnedBullet = Instantiate(bullet);
+            spawnedBullet.GetComponent<BulletDamage>().Generate(1);
             spawnedBullet.transform.position = spawnPointSmall.position;
             spawnedBullet.transform.rotation = spawnPointSmall.rotation;
             spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPointSmall.forward * fireSpeed;
@@ -97,16 +98,16 @@ public class FireBulletOnActivate : MonoBehaviour
             BulletTime = MathF.Abs(BulletTime);
             if (BulletTime * fusePrecent >= sockets.total_charge && BulletTime <= maxDamage)
             {
-                spawnedBullet.GetComponent<BulletDamage>().damage = (int) MathF.Floor(sockets.total_charge);
+                spawnedBullet.GetComponent<BulletDamage>().Generate((int) MathF.Floor(sockets.total_charge));
                 sockets.FuseDrain(sockets.total_charge);
             }
             else if (BulletTime >= maxDamage)
             {
-                spawnedBullet.GetComponent<BulletDamage>().damage = maxDamage;
+                spawnedBullet.GetComponent<BulletDamage>().Generate(maxDamage);
                 sockets.FuseDrain(fusePrecent * maxDamage);
             }else
             {
-                spawnedBullet.GetComponent<BulletDamage>().damage = (int) MathF.Floor(BulletTime);
+                spawnedBullet.GetComponent<BulletDamage>().Generate((int) MathF.Floor(BulletTime));
                 sockets.FuseDrain(fusePrecent * MathF.Floor(BulletTime));
             }
             spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPointSmall.forward * fireSpeed;
