@@ -20,6 +20,9 @@ public class FireBulletOnActivate : MonoBehaviour
     public float fusePrecent = 0.25f;
 
     public int maxDamage = 5;
+
+    public ParticleSystem chargingParticles;
+    public bool charging = false;
     
 
     // Start is called before the first frame update
@@ -44,6 +47,11 @@ public class FireBulletOnActivate : MonoBehaviour
         if (timer)
         {
             BulletTime += Time.deltaTime;
+            if (BulletTime >= 1 && charging is false)
+            {
+                charging = true;
+                chargingParticles.Play();
+            }
         }
     }
 
@@ -61,6 +69,8 @@ public class FireBulletOnActivate : MonoBehaviour
         if (ok)
         {
             timer = false;
+            charging = false;
+            chargingParticles.Stop();
             if (BulletTime < 0.5)
             {
                 FireBullet();

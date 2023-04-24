@@ -6855,6 +6855,8 @@ MonoBehaviour:
   BulletTime: 0
   fusePrecent: 0.25
   maxDamage: 5
+  chargingParticles: {fileID: 2133549104}
+  charging: 0
 --- !u!114 &1491529281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9202,6 +9204,12 @@ Transform:
 --- !u!4 &2133549102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: a92730a5776b6d64fb56b5af55f6f8b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1135917723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2133549104 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4734965314515942616, guid: a92730a5776b6d64fb56b5af55f6f8b8,
     type: 3}
   m_PrefabInstance: {fileID: 1135917723}
   m_PrefabAsset: {fileID: 0}
