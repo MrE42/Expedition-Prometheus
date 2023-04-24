@@ -42,7 +42,7 @@ ParticleSystem:
   m_GameObject: {fileID: 100004}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 2.5
+  simulationSpeed: 5
   stopAction: 0
   cullingMode: 3
   ringBufferMode: 0
@@ -285,7 +285,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1287,18 +1287,18 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.24743842, b: 0.18431371, a: 0}
-        key1: {r: 1, g: 0.57302797, b: 0.08962262, a: 0.37254903}
-        key2: {r: 1, g: 0.11129015, b: 0, a: 1}
-        key3: {r: 1, g: 0.11129016, b: 0, a: 0.37254903}
+        key0: {r: 0, g: 0.70980394, b: 1, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0.37254903}
+        key2: {r: 0, g: 0.70980394, b: 1, a: 1}
+        key3: {r: 1, g: 1, b: 1, a: 0.37254903}
         key4: {r: 1, g: 1, b: 1, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 14842
         ctime1: 31804
-        ctime2: 35852
-        ctime3: 57054
+        ctime2: 44140
+        ctime3: 65535
         ctime4: 65535
         ctime5: 0
         ctime6: 0
@@ -4755,7 +4755,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 76f106c1d383cdb488221f22579be3e2, type: 2}
+  - {fileID: 2100000, guid: c7f425a3ff11d5d46821209b873b4341, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5091,7 +5091,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 6
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6111,9 +6111,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.9716981, g: 0.15027045, b: 0.050418302, a: 0}
-        key1: {r: 0.8018868, g: 0.6818042, b: 0.26855645, a: 0.37254903}
-        key2: {r: 1, g: 0.08962262, b: 0.116362855, a: 1}
+        key0: {r: 0, g: 0.70980394, b: 1, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0.37254903}
+        key2: {r: 0, g: 0.70980394, b: 1, a: 1}
         key3: {r: 1, g: 1, b: 1, a: 0.37254903}
         key4: {r: 1, g: 1, b: 1, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -9642,7 +9642,7 @@ GameObject:
   - component: {fileID: 114000011065912796}
   - component: {fileID: 114000010257050880}
   m_Layer: 0
-  m_Name: power Bullet
+  m_Name: powerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
