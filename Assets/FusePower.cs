@@ -7,7 +7,6 @@ public class FusePower : MonoBehaviour
 
     public float charge = 1;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -22,4 +21,5 @@ public class FusePower : MonoBehaviour
             charge = 0;
         }
     }
+    
 }
