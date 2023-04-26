@@ -21,6 +21,11 @@ public class crewmateAI : MonoBehaviour
     private float attackStart = 0;
     private float attackSpeed = 1.5f;
 
+    public GameObject regularImpact;
+    public GameObject chargedImpact;
+
+    private GameObject impact;
+
     void Start()
     {
         health = startingHealth;
@@ -99,6 +104,16 @@ public class crewmateAI : MonoBehaviour
         {
             Debug.Log(health);
             health -= other.gameObject.GetComponent<BulletDamage>().damage;
+            if (other.gameObject.GetComponent<BulletDamage>().damage == 1)
+            {
+                impact = Instantiate(regularImpact);
+            }
+            else
+            {
+                impact = Instantiate(chargedImpact);
+            }
+            impact.transform.position = other.transform.position;
+            impact.GetComponent<ParticleSystem>().Play();
             if (health > 0)
             {
                 stumbleStart = Time.time;

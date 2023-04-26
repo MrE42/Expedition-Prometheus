@@ -63,6 +63,8 @@ public class FireBulletOnActivate : MonoBehaviour
         {
             timer = true;
             BulletTime = Time.deltaTime;
+            regularBlast.Stop();
+            chargedBlast.Stop();
         }
     }
     
@@ -71,9 +73,7 @@ public class FireBulletOnActivate : MonoBehaviour
         if (ok)
         {
             timer = false;
-            charging = false;
-            chargingParticles.Stop();
-            if (BulletTime < 0.5)
+            if (!charging)
             {
                 FireBullet();
             }
@@ -81,6 +81,7 @@ public class FireBulletOnActivate : MonoBehaviour
             {
                 FireChargedShot();
             }
+            charging = false;
         }
     }
     
@@ -100,6 +101,7 @@ public class FireBulletOnActivate : MonoBehaviour
     
     public void FireChargedShot()
     {
+        chargingParticles.Stop();
         chargedBlast.Play();
         GameObject spawnedBullet = Instantiate(bullet);
         spawnedBullet.transform.position = spawnPointCharged.position;

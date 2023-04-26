@@ -768,7 +768,10 @@ MonoBehaviour:
   startingHealth: 3
   health: 0
   animationSpeed: 0.8
-  levelController: {fileID: 0}
+  levelControler: {fileID: 0}
+  playerHealthSystem: {fileID: 0}
+  regularImpact: {fileID: 100012, guid: 2cc576b4e6cee834fbb56a7ee5baee51, type: 3}
+  chargedImpact: {fileID: 100012, guid: e6087b9bab7d50345813bace29419dde, type: 3}
 --- !u!1 &2245397556099245774
 GameObject:
   m_ObjectHideFlags: 0
