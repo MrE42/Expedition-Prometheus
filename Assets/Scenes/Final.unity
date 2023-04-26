@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.031109823, g: 0.009473317, b: 0.012994485, a: 1}
+  m_IndirectSpecularColor: {r: 0.031163083, g: 0.009459269, b: 0.013044128, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2400,7 +2400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503641257}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0.0012, z: 0.0134}
+  m_LocalPosition: {x: -0, y: 0.0102, z: 0.0271}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11730,7 +11730,7 @@ GameObject:
   - component: {fileID: 3827438441594975547}
   - component: {fileID: 5744952799345042018}
   - component: {fileID: 3746944515759063086}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11846,7 +11846,6 @@ GameObject:
   - component: {fileID: 7707917096108622166}
   - component: {fileID: 7707917096108622168}
   - component: {fileID: 7707917096108622167}
-  - component: {fileID: 7707917096108622169}
   m_Layer: 0
   m_Name: storagePlantPod
   m_TagString: Untagged
@@ -12974,7 +12973,7 @@ GameObject:
   - component: {fileID: 8764971056320962177}
   - component: {fileID: 8764971056320962179}
   - component: {fileID: 8764971056320962178}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: plantPod
   m_TagString: ThePod
   m_Icon: {fileID: 0}
@@ -13231,6 +13230,7 @@ GameObject:
   - component: {fileID: 2785612922276147790}
   - component: {fileID: 5256456827030511471}
   - component: {fileID: 5256456827030511472}
+  - component: {fileID: 5256456827030511473}
   m_Layer: 0
   m_Name: storageCase
   m_TagString: Untagged
@@ -14327,12 +14327,68 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3933452061952708024}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -460014746048807196, guid: 6e58a58b8ef6ebd49a8b964c9cebf0a3, type: 3}
+--- !u!114 &5256456827030511473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3933452061952708024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38491da3e8b9eb428a0de0b809a8857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 804875942}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 4294967295
+  m_AttachTransform: {fileID: 503641258}
+  m_KeepSelectedTargetValid: 1
+  m_DisableVisualsWhenBlockedInGroup: 1
+  m_StartingSelectedInteractable: {fileID: 8764971056320962178}
+  m_StartingTargetFilter: {fileID: 0}
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ShowInteractableHoverMeshes: 1
+  m_InteractableHoverMeshMaterial: {fileID: 0}
+  m_InteractableCantHoverMeshMaterial: {fileID: 0}
+  m_SocketActive: 1
+  m_InteractableHoverScale: 1
+  m_RecycleDelayTime: 1
+  targetTag: ThePod
 --- !u!33 &5298573267429818430
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15912,6 +15968,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7294129044081691975, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: mid
+      value: 
+      objectReference: {fileID: 8300000, guid: ae24f076dca9bf34887122121674ee8f, type: 3}
+    - target: {fileID: 7294129044081691975, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: ending
+      value: 
+      objectReference: {fileID: 8300000, guid: c2e5a11ea8fbf804780f3aa91aeee4c5, type: 3}
+    - target: {fileID: 7294129044081691975, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: beginning
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a33d2c680cb0ef4a8134f53065bf803, type: 3}
+    - target: {fileID: 7294129044158126709, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: mid
+      value: 
+      objectReference: {fileID: 8300000, guid: ae24f076dca9bf34887122121674ee8f, type: 3}
+    - target: {fileID: 7294129044158126709, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: ending
+      value: 
+      objectReference: {fileID: 8300000, guid: c2e5a11ea8fbf804780f3aa91aeee4c5, type: 3}
+    - target: {fileID: 7294129044158126709, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: beginning
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a33d2c680cb0ef4a8134f53065bf803, type: 3}
+    - target: {fileID: 7294129044979789073, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: mid
+      value: 
+      objectReference: {fileID: 8300000, guid: ae24f076dca9bf34887122121674ee8f, type: 3}
+    - target: {fileID: 7294129044979789073, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: ending
+      value: 
+      objectReference: {fileID: 8300000, guid: c2e5a11ea8fbf804780f3aa91aeee4c5, type: 3}
+    - target: {fileID: 7294129044979789073, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: beginning
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a33d2c680cb0ef4a8134f53065bf803, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31, type: 3}
 --- !u!1 &7305169969426427795
@@ -16002,7 +16103,7 @@ GameObject:
   - component: {fileID: 3101372931120604655}
   - component: {fileID: 5084689840572081658}
   - component: {fileID: 7504997561856349709}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: plantPodBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16166,7 +16267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2182884733827881880}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.040748406, y: 0.055906396, z: 0.11941849}
+  m_LocalPosition: {x: 0.040748406, y: 0.055906396, z: 0.1218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16288,62 +16389,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &7707917096108622169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2182884733827881880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38491da3e8b9eb428a0de0b809a8857, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 804875942}
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_InteractionLayers:
-    m_Bits: 4294967295
-  m_AttachTransform: {fileID: 503641258}
-  m_KeepSelectedTargetValid: 1
-  m_DisableVisualsWhenBlockedInGroup: 1
-  m_StartingSelectedInteractable: {fileID: 8764971056320962178}
-  m_StartingTargetFilter: {fileID: 0}
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_StartingHoverFilters: []
-  m_StartingSelectFilters: []
-  m_OnHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ShowInteractableHoverMeshes: 1
-  m_InteractableHoverMeshMaterial: {fileID: 0}
-  m_InteractableCantHoverMeshMaterial: {fileID: 0}
-  m_SocketActive: 1
-  m_InteractableHoverScale: 1
-  m_RecycleDelayTime: 1
-  targetTag: ThePod
 --- !u!1 &7784684127223052193
 GameObject:
   m_ObjectHideFlags: 0
@@ -17501,7 +17546,7 @@ Transform:
   m_GameObject: {fileID: 3682815312163012845}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.0407484, y: 0.05642592, z: 0.20363873}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3827438441594975547}
@@ -17673,7 +17718,7 @@ GameObject:
   - component: {fileID: 1512357394787328841}
   - component: {fileID: 1803140508352968597}
   - component: {fileID: 8820344202587284490}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: plantPodGlass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
