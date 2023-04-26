@@ -80,6 +80,7 @@ public class HealthSystem : MonoBehaviour
 
 	public void UpdateWaveText(int wn)
 	{
+		wn += 1; // Non zero indexing of waves
 		waveText.text = "Wave: " + wn.ToString("0");
 		UpdateGraphics();
 	}

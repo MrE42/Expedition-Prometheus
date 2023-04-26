@@ -84,7 +84,7 @@ public class KeypadManager : MonoBehaviour
             tvScreen.color = Color.white;
             // Set text
             List<string> strings = code.ConvertAll<string>(x => x.ToString());
-            tvScreen.text = "Enter " + String.Join(", ", strings);
+            tvScreen.text = "Enter " + String.Join(", ", strings) + " To Reactivate Door";
         }
     }
 

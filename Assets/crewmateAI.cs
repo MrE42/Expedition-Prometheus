@@ -17,6 +17,9 @@ public class crewmateAI : MonoBehaviour
     private bool playingDeathAnim = false;
     public float animationSpeed = 1.0f;
     public LevelControl levelControler;
+    public HealthSystem playerHealthSystem;
+    private float attackStart = 0;
+    private float attackSpeed = 1.5f;
 
     void Start()
     {
@@ -62,6 +65,11 @@ public class crewmateAI : MonoBehaviour
             }
             else if (Vector3.Distance(gameObject.transform.position, target.transform.position) < attackDistance)
             {
+                if (Time.time-attackStart>attackSpeed)
+                {
+                    attackStart = Time.time;
+                    playerHealthSystem.TakeDamage(10);
+                }
                 anim.CrossFade("attack", 1.5f);
                 rb.velocity = new Vector3(0, 0, 0);
                 LookAtTarget();
@@ -83,13 +91,6 @@ public class crewmateAI : MonoBehaviour
         Vector3 lookAtYZeroed = target.transform.position;
         lookAtYZeroed.y = gameObject.transform.position.y;
         gameObject.transform.LookAt(lookAtYZeroed, Vector3.up);
-    }
-
-    private float vector2DDistance(Vector3 v1, Vector3 v2)
-    {
-        float xDiff = v1.x - v2.x;
-        float zDiff = v1.z - v2.z;
-        return Mathf.Sqrt((xDiff * xDiff) + (zDiff * zDiff));
     }
 
     private void OnTriggerEnter(Collider other)
