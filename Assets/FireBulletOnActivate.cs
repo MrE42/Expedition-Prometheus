@@ -23,7 +23,9 @@ public class FireBulletOnActivate : MonoBehaviour
 
     public ParticleSystem chargingParticles;
     public bool charging = false;
-    
+
+    public ParticleSystem regularBlast;
+    public ParticleSystem chargedBlast;
 
     // Start is called before the first frame update
     void Start()
@@ -85,44 +87,40 @@ public class FireBulletOnActivate : MonoBehaviour
 
     public void FireBullet()
     {
-        if (ok)
-        {
-            GameObject spawnedBullet = Instantiate(bullet);
-            spawnedBullet.GetComponent<BulletDamage>().Generate(1);
-            spawnedBullet.transform.position = spawnPointSmall.position;
-            spawnedBullet.transform.rotation = spawnPointSmall.rotation;
-            spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPointSmall.forward * fireSpeed;
-            sockets.FuseDrain(fusePrecent);
-            Destroy(spawnedBullet, 5);
-        }
+        regularBlast.Play();
+        GameObject spawnedBullet = Instantiate(bullet);
+        spawnedBullet.GetComponent<BulletDamage>().Generate(1);
+        spawnedBullet.transform.position = spawnPointSmall.position;
+        spawnedBullet.transform.rotation = spawnPointSmall.rotation;
+        spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPointSmall.forward * fireSpeed;
+        sockets.FuseDrain(fusePrecent);
+        Destroy(spawnedBullet, 5);
 
     }
     
     public void FireChargedShot()
     {
-        if (ok)
+        chargedBlast.Play();
+        GameObject spawnedBullet = Instantiate(bullet);
+        spawnedBullet.transform.position = spawnPointCharged.position;
+        spawnedBullet.transform.rotation = spawnPointSmall.rotation;
+        BulletTime = MathF.Abs(BulletTime);
+        if (BulletTime * fusePrecent >= sockets.total_charge && BulletTime <= maxDamage)
         {
-            GameObject spawnedBullet = Instantiate(bullet);
-            spawnedBullet.transform.position = spawnPointCharged.position;
-            spawnedBullet.transform.rotation = spawnPointSmall.rotation;
-            BulletTime = MathF.Abs(BulletTime);
-            if (BulletTime * fusePrecent >= sockets.total_charge && BulletTime <= maxDamage)
-            {
-                spawnedBullet.GetComponent<BulletDamage>().Generate((int) MathF.Floor(sockets.total_charge));
-                sockets.FuseDrain(sockets.total_charge);
-            }
-            else if (BulletTime >= maxDamage)
-            {
-                spawnedBullet.GetComponent<BulletDamage>().Generate(maxDamage);
-                sockets.FuseDrain(fusePrecent * maxDamage);
-            }else
-            {
-                spawnedBullet.GetComponent<BulletDamage>().Generate((int) MathF.Floor(BulletTime));
-                sockets.FuseDrain(fusePrecent * MathF.Floor(BulletTime));
-            }
-            spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPointSmall.forward * fireSpeed;
-            Destroy(spawnedBullet, 5);
+            spawnedBullet.GetComponent<BulletDamage>().Generate((int) MathF.Floor(sockets.total_charge));
+            sockets.FuseDrain(sockets.total_charge);
         }
+        else if (BulletTime >= maxDamage)
+        {
+            spawnedBullet.GetComponent<BulletDamage>().Generate(maxDamage);
+            sockets.FuseDrain(fusePrecent * maxDamage);
+        }else
+        {
+            spawnedBullet.GetComponent<BulletDamage>().Generate((int) MathF.Floor(BulletTime));
+            sockets.FuseDrain(fusePrecent * MathF.Floor(BulletTime));
+        }
+        spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPointSmall.forward * fireSpeed;
+        Destroy(spawnedBullet, 5);
 
     }
 }
