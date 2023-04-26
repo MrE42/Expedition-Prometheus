@@ -12,7 +12,8 @@ public class DoorControllButton : MonoBehaviour
     private Vector3 buttonDown;
     void Start()
     {
-
+        buttonUp = gameObject.transform.position;
+        buttonDown = new Vector3(buttonUp.x,buttonUp.y-.001f,buttonUp.z);
     }
 
     void Update()
@@ -30,6 +31,7 @@ public class DoorControllButton : MonoBehaviour
                 doorManager.doorIsOpen = !doorManager.doorIsOpen;
             }
         }
+        gameObject.transform.position = buttonDown;
     }
     private void OnTriggerExit(Collider other)
     {
@@ -37,5 +39,6 @@ public class DoorControllButton : MonoBehaviour
         {
                 buttonClicked = false;
         }
+        gameObject.transform.position = buttonUp;
     }
 }
