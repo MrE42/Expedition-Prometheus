@@ -47,7 +47,7 @@ public class LevelControl : MonoBehaviour
                 hs.UpdateWaveText(currentWaveNumber);
             }
             
-        } else if (numAliveEnemys == 0 && !startWave)
+        } else if (numAliveEnemys == 0 && !startWave && currentWaveNumber != -1)
         {
             //Start Wave Timer
             waveTimer -= Time.deltaTime;
