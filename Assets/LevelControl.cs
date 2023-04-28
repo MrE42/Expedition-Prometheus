@@ -16,6 +16,10 @@ public class LevelControl : MonoBehaviour
     public bool startWave = false;
     public bool currentWaveFinished = true;
     public int numAliveEnemys = 0;
+
+    public float waveTime = 20;
+    public float waveTimer = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +29,7 @@ public class LevelControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (numAliveEnemys==0 && startWave) // CURRENT WAVE IS FINISHED
+        if (numAliveEnemys==0 && startWave) // CURRENT WAVE IS FINISHED && Intermidiate Timer Is Over
         {
             startWave = false;
             if (currentWaveNumber==waves.Count-1) // GAME OVER
@@ -39,6 +43,20 @@ public class LevelControl : MonoBehaviour
                 hs.UpdateWaveText(currentWaveNumber);
             }
             
+        } else if (numAliveEnemys == 0 && !startWave)
+        {
+            //Start Wave Timer
+            waveTimer -= Time.deltaTime;
+            if (waveTimer <= 0)
+            {
+                waveTimer = waveTime;
+                startWave = true;
+            }
+            else
+            {
+                hs.UpdateWaveTimer(waveTimer);
+            }
+
         }
     }
 

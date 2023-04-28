@@ -9,6 +9,7 @@
 
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -82,6 +83,12 @@ public class HealthSystem : MonoBehaviour
 	{
 		wn += 1; // Non zero indexing of waves
 		waveText.text = "Wave: " + wn.ToString("0");
+		UpdateGraphics();
+	}
+	
+	public void UpdateWaveTimer(float time)
+	{
+		waveText.text = time.ToString("F", CultureInfo.CreateSpecificCulture("en-CA"));
 		UpdateGraphics();
 	}
 

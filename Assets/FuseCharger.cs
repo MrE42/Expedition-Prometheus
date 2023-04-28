@@ -52,7 +52,7 @@ public class FuseCharger : MonoBehaviour
             {
                 speaker.clip = mid;
                 speaker.Play();
-            } else if (power.charge >= 1 - ending.length / charge_time)
+            } else if (power.charge >= 1 - ending.length / charge_time && !endingClip)
             {
                 endingClip = true;
                 speaker.Stop();

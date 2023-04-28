@@ -6,6 +6,8 @@ public class FusePower : MonoBehaviour
 {
 
     public float charge = 1;
+    public ParticleSystem sparks;
+    private float sparkTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,17 @@ public class FusePower : MonoBehaviour
         if (charge < 0)
         {
             charge = 0;
+        }
+
+        if (charge == 0)
+        {
+            sparkTime += Time.deltaTime;
+            if (sparkTime >= 3)
+            {
+                sparks.Stop();
+                sparkTime = 0;
+                sparks.Play();
+            }
         }
     }
     
