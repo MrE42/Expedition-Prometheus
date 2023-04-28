@@ -5004,6 +5004,7 @@ MonoBehaviour:
   hs: {fileID: 447795121}
   currentWaveNumber: -1
   startWave: 0
+  gameOver: 0
   numAliveEnemys: 0
   waveTime: 20
   waveTimer: 0
@@ -6356,6 +6357,7 @@ MonoBehaviour:
   levelControl: {fileID: 997266117}
   handLeft: {fileID: 655423601}
   handRight: {fileID: 999892480}
+  buttonClicked: 0
 --- !u!65 &1270233326
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19289,6 +19291,8 @@ MonoBehaviour:
   moveSpeed: 0.1
   transportOffset: 0.085
   transportMP: 0
+  endButton: {fileID: 1270233325}
+  buttonText: {fileID: 1999472697}
 --- !u!1 &8925343142056541078
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class PodManager : MonoBehaviour
     public float transportMP = 0;
 
     public StartRoundButton endButton;
-    public Text buttonText;
+    public GameObject buttonText;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +52,7 @@ public class PodManager : MonoBehaviour
         if (endPhase == 2 && transportMP == 0)
         {
             endPhase = 3;
-            buttonText.text = "Press To Launch Seed";
+            buttonText.GetComponent<TMPro.TextMeshProUGUI>().text = "Press To Launch Seed";
         }
 
         if (endPhase == 3 && endButton.buttonClicked)
