@@ -12,8 +12,8 @@ public class KeypadManager : MonoBehaviour
     public List<int> pressOrder = new List<int>();
     public List<DoorButtonVR> buttons = new List<DoorButtonVR>();
     public List<int> code = new List<int> { 1, 3, 2, 4};
-    private float lastFusePower = 0;
-    public float fusePower = 0;
+    private float lastFusePower = 1;
+    public float fusePower = 1;
     public XRSocketInteractor fuseInteractor;
     public TextMeshPro tvScreen;
 
@@ -33,8 +33,8 @@ public class KeypadManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lastFusePower = fusePower;
-        if (pressOrder.Count == code.Count)
+        
+        if (pressOrder.Count == code.Count) // The code entered matches the length of the desired code
         {
             bool codesMatch = true;
             for (int i = 0; i < pressOrder.Count; i++)
@@ -63,7 +63,8 @@ public class KeypadManager : MonoBehaviour
             }
         }
 
-        if (fuseInteractor.hasSelection) // If fuse is plugged into socket
+        lastFusePower = fusePower;
+        if (fuseInteractor.hasSelection) // If fuse is plugged into socket and door doesn't need to be reset
         {
             fusePower = fuseInteractor.GetOldestInteractableSelected().transform.gameObject.GetComponent<FusePower>().charge;
         }
@@ -78,7 +79,12 @@ public class KeypadManager : MonoBehaviour
             System.Random rand = new System.Random();
             for (int i = 0; i < code.Count; i++)
             {
-                code[i] = rand.Next(0, 10); // Generate a random number between 0 and 9
+                int randNum = rand.Next(1, 10); // Generate a random number between 1 and 9
+                while (code.Contains(randNum))
+                {
+                    randNum = rand.Next(1, 10);
+                }
+                code[i] = randNum;
             }
             // Change color of text on tv screen to white
             tvScreen.color = Color.white;

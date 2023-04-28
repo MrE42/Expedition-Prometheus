@@ -13,7 +13,7 @@ public class DoorControllButton : MonoBehaviour
     void Start()
     {
         buttonUp = gameObject.transform.position;
-        buttonDown = new Vector3(buttonUp.x,buttonUp.y-.001f,buttonUp.z);
+        buttonDown = new Vector3(buttonUp.x,buttonUp.y-.01f,buttonUp.z);
     }
 
     void Update()
@@ -30,15 +30,15 @@ public class DoorControllButton : MonoBehaviour
                 buttonClicked = true;
                 doorManager.doorIsOpen = !doorManager.doorIsOpen;
             }
+            gameObject.transform.position = buttonDown;
         }
-        gameObject.transform.position = buttonDown;
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == handLeft || other.gameObject == handRight)
         {
-                buttonClicked = false;
+            buttonClicked = false;
+            gameObject.transform.position = buttonUp;
         }
-        gameObject.transform.position = buttonUp;
     }
 }

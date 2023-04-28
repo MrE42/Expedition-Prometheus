@@ -36,7 +36,7 @@ public class DoorManager : MonoBehaviour
     {
         if (doorIsOpen)
         {
-            if (keypadManager.fusePower > 0) // Door fuse has power in it and is plugged in
+            if (keypadManager.fusePower > 0 && keypadManager.tvScreen.text=="") // Door fuse has power in it and is plugged in
             {
                 doorMovementPercentage -= 0.01f*doorSpeed;
                 doorMovementPercentage = Mathf.Clamp(doorMovementPercentage, 0, 1);
