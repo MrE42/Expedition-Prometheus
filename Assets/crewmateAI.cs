@@ -75,13 +75,13 @@ public class crewmateAI : MonoBehaviour
                     attackStart = Time.time;
                     playerHealthSystem.TakeDamage(10);
                 }
-                anim.CrossFade("attack", 1.5f);
+                anim.CrossFade("attack", 1.0f);
                 rb.velocity = new Vector3(0, 0, 0);
                 LookAtTarget();
             }
             else
             {
-                anim.CrossFade("walk", 1.5f);
+                anim.CrossFade("walk", 1.0f);
                 Vector3 enemyToTarget = target.transform.position - gameObject.transform.position;
                 Vector3 movementVector = enemyToTarget.normalized * walkingSpeed * Time.deltaTime;
                 movementVector.y = 0;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelControl : MonoBehaviour
 {
-    public List<List<int>> waves = new List<List<int>> { new List<int> {1,1,1}, new List<int> {1,1,1,1} }; // each index is an array were [num of enemy 1, num of enemy 2, num of enemy 3]
+    public List<List<int>> waves = new List<List<int>> { new List<int> {1,1}, new List<int> {1,1,1} }; // each index is an array were [num of enemy 1, num of enemy 2, num of enemy 3]
     public float spawnRate = 5;
     public Spawner spawnerMain;
     public Spawner spawnerRight;
