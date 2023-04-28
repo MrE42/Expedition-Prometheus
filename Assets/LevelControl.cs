@@ -50,8 +50,8 @@ public class LevelControl : MonoBehaviour
         foreach (int enemyType in spawnRequests)
         {
             spawnerMain.AddToSpawnQueue(enemyType);
-            //spawnerRight.SpawnEnemy(enemyType);
-            //spawnerLeft.SpawnEnemy(enemyType);
+            spawnerRight.AddToSpawnQueue(enemyType);
+            spawnerLeft.AddToSpawnQueue(enemyType);
         }
     }
 }
