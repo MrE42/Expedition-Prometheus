@@ -14,7 +14,7 @@ public class LevelControl : MonoBehaviour
 
     public int currentWaveNumber = -1;
     public bool startWave = false;
-    public bool currentWaveFinished = true;
+    //public bool currentWaveFinished = true;
     public int numAliveEnemys = 0;
 
     public float waveTime = 20;
@@ -28,6 +28,8 @@ public class LevelControl : MonoBehaviour
         {
             finalWave = waves.Count - 1;
         }
+
+        waveTimer = waveTime;
     }
 
     // Update is called once per frame

@@ -5004,8 +5004,10 @@ MonoBehaviour:
   hs: {fileID: 447795121}
   currentWaveNumber: -1
   startWave: 0
-  currentWaveFinished: 0
   numAliveEnemys: 0
+  waveTime: 20
+  waveTimer: 0
+  finalWave: 10
 --- !u!1 &999892480
 GameObject:
   m_ObjectHideFlags: 0
@@ -10621,7 +10623,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press for next wave
+  m_text: Press to Start Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10684,7 +10686,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 5.9695997, y: 1.9858627, z: 11.137847, w: 2.3042507}
+  m_margin: {x: 5.6569734, y: 1.9858627, z: 10.540036, w: 2.3042507}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0

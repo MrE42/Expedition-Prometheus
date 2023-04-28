@@ -29,7 +29,10 @@ public class StartRoundButton : MonoBehaviour
             if (!buttonClicked)
             {
                 buttonClicked = true;
-                levelControl.startWave = true;
+                if (levelControl.currentWaveNumber == -1)
+                {
+                    levelControl.startWave = true;
+                }
             }
             gameObject.transform.position = buttonDown;
         }
