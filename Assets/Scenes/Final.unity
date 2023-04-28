@@ -2842,6 +2842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charge: 1
+  sparks: {fileID: 0}
 --- !u!64 &616688110
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3131,6 +3132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charge: 1
+  sparks: {fileID: 0}
 --- !u!64 &675503944
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3323,6 +3325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charge: 1
+  sparks: {fileID: 0}
 --- !u!64 &740888154
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6717,6 +6720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charge: 1
+  sparks: {fileID: 0}
 --- !u!64 &1461238098
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7687,6 +7691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charge: 1
+  sparks: {fileID: 0}
 --- !u!64 &1491529283
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16658,8 +16663,55 @@ PrefabInstance:
       propertyPath: beginning
       value: 
       objectReference: {fileID: 8300000, guid: 9a33d2c680cb0ef4a8134f53065bf803, type: 3}
+    - target: {fileID: 7294129044979789079, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294129044979789079, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294129044979789079, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7294129043524437523}
+    - target: {fileID: 7294129044979789079, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294129044979789079, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Inserted
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294129044979789079, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: FuseCharger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294129044979789079, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31, type: 3}
+--- !u!114 &7294129043524437523 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7294129044979789073, guid: 273a9fd3d9cd4e847aa0a20bf16bdd31,
+    type: 3}
+  m_PrefabInstance: {fileID: 7294129043524437522}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53413e3fc4d26334eb7a883f827bcc58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7305169969426427795
 GameObject:
   m_ObjectHideFlags: 0
