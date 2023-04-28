@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -20,6 +21,9 @@ public class PodManager : MonoBehaviour
     public float transportOffset = 0.14f;
     private float podStartMovement = 0;
     public float transportMP = 0;
+
+    public StartRoundButton endButton;
+    public Text buttonText;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,9 +52,14 @@ public class PodManager : MonoBehaviour
         if (endPhase == 2 && transportMP == 0)
         {
             endPhase = 3;
+            buttonText.text = "Press To Launch Seed";
         }
-        
-        // if endPhase == 3 && buttonPressed: fire the seed!
+
+        if (endPhase == 3 && endButton.buttonClicked)
+        {
+            //Fire the seed
+            level.gameOver = true;
+        }
 
         if (endPhase == 1)
         {

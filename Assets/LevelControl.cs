@@ -14,7 +14,7 @@ public class LevelControl : MonoBehaviour
 
     public int currentWaveNumber = -1;
     public bool startWave = false;
-    //public bool currentWaveFinished = true;
+    public bool gameOver = false;
     public int numAliveEnemys = 0;
 
     public float waveTime = 20;
@@ -38,7 +38,7 @@ public class LevelControl : MonoBehaviour
         if (numAliveEnemys==0 && startWave) // CURRENT WAVE IS FINISHED && Intermidiate Timer Is Over
         {
             startWave = false;
-            if (currentWaveNumber==waves.Count-1) // GAME OVER
+            if (gameOver) // GAME OVER
             {
                 
             }

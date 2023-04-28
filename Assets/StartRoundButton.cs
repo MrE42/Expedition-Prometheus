@@ -7,7 +7,7 @@ public class StartRoundButton : MonoBehaviour
     public LevelControl levelControl;
     public GameObject handLeft;
     public GameObject handRight;
-    private bool buttonClicked = false;
+    public bool buttonClicked = false;
     private Vector3 buttonUp;
     private Vector3 buttonDown;
 
