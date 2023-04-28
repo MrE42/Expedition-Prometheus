@@ -35,7 +35,7 @@ public class PodManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (level.currentWaveNumber == 10 && endPhase == 0)
+        if (level.currentWaveNumber == level.finalWave && endPhase == 0)
         {
             endPhase = 1;
         }
