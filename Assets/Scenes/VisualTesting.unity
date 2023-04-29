@@ -696,6 +696,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 031c91d2ea6ddbb458a888ab87afe9d3, type: 2}
+    - target: {fileID: -4971410608062012962, guid: 6e58a58b8ef6ebd49a8b964c9cebf0a3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2efd86d8c3f0e924fb1c27ec6c2eec50, type: 2}
     - target: {fileID: -3933078961547458771, guid: 6e58a58b8ef6ebd49a8b964c9cebf0a3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3559,6 +3564,10 @@ MonoBehaviour:
   BulletTime: 0
   fusePrecent: 0.25
   maxDamage: 5
+  chargingParticles: {fileID: 0}
+  charging: 0
+  regularBlast: {fileID: 0}
+  chargedBlast: {fileID: 0}
 --- !u!54 &2134964055
 Rigidbody:
   m_ObjectHideFlags: 0
