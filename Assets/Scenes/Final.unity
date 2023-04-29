@@ -14280,6 +14280,7 @@ GameObject:
   - component: {fileID: 3845582470657933755}
   - component: {fileID: 1795092694642763981}
   - component: {fileID: 8840667992869411037}
+  - component: {fileID: 8840667992869411038}
   m_Layer: 0
   m_Name: storageTransport
   m_TagString: Untagged
@@ -19700,6 +19701,20 @@ MonoBehaviour:
   transportMP: 0
   endButton: {fileID: 1270233325}
   buttonText: {fileID: 1999472697}
+--- !u!64 &8840667992869411038
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3001102169525178391}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5607457378723655243, guid: 6e58a58b8ef6ebd49a8b964c9cebf0a3, type: 3}
 --- !u!1 &8925343142056541078
 GameObject:
   m_ObjectHideFlags: 0
