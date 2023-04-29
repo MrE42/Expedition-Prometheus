@@ -5145,7 +5145,7 @@ MonoBehaviour:
   startWave: 0
   gameOver: 0
   numAliveEnemys: 0
-  waveTime: 20
+  waveTime: 40
   waveTimer: 0
   finalWave: 10
 --- !u!1 &999892480
