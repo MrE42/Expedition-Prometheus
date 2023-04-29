@@ -27,11 +27,17 @@ public class FireBulletOnActivate : MonoBehaviour
     public ParticleSystem regularBlast;
     public ParticleSystem chargedBlast;
 
+    public AudioClip regularClip;
+    public AudioClip chargedClip;
+
+    private AudioSource speaker;
+
     // Start is called before the first frame update
     void Start()
     {
         //XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
         //grabbable.activated.AddListener(FireBullet);
+        speaker = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -88,6 +94,9 @@ public class FireBulletOnActivate : MonoBehaviour
 
     public void FireBullet()
     {
+        speaker.Stop();
+        speaker.clip = regularClip;
+        speaker.Play();
         regularBlast.Play();
         GameObject spawnedBullet = Instantiate(bullet);
         spawnedBullet.GetComponent<BulletDamage>().Generate(1);
@@ -101,6 +110,9 @@ public class FireBulletOnActivate : MonoBehaviour
     
     public void FireChargedShot()
     {
+        speaker.Stop();
+        speaker.clip = chargedClip;
+        speaker.Play();
         chargingParticles.Stop();
         chargedBlast.Play();
         GameObject spawnedBullet = Instantiate(bullet);

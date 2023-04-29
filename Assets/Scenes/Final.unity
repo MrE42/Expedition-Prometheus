@@ -1296,6 +1296,7 @@ GameObject:
   - component: {fileID: 316419803}
   - component: {fileID: 316419805}
   - component: {fileID: 316419804}
+  - component: {fileID: 316419806}
   m_Layer: 0
   m_Name: socket_2
   m_TagString: Untagged
@@ -1387,6 +1388,18 @@ MonoBehaviour:
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   targetTag: CannonFuse
+--- !u!114 &316419806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316419802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7f0e919a32b834d92f43cd15be6c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &338612685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2708,6 +2721,7 @@ GameObject:
   - component: {fileID: 535231128}
   - component: {fileID: 535231130}
   - component: {fileID: 535231129}
+  - component: {fileID: 535231131}
   m_Layer: 0
   m_Name: socket_4
   m_TagString: Untagged
@@ -2799,6 +2813,18 @@ MonoBehaviour:
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   targetTag: CannonFuse
+--- !u!114 &535231131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535231127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7f0e919a32b834d92f43cd15be6c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &586489431
 GameObject:
   m_ObjectHideFlags: 0
@@ -6159,6 +6185,7 @@ GameObject:
   - component: {fileID: 1248971168}
   - component: {fileID: 1248971166}
   - component: {fileID: 1248971167}
+  - component: {fileID: 1248971169}
   m_Layer: 0
   m_Name: socket_5
   m_TagString: Untagged
@@ -6250,6 +6277,18 @@ Transform:
   m_Father: {fileID: 2126469678}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1248971169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248971165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7f0e919a32b834d92f43cd15be6c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1269025764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6763,6 +6802,7 @@ GameObject:
   - component: {fileID: 1445273662}
   - component: {fileID: 1445273664}
   - component: {fileID: 1445273663}
+  - component: {fileID: 1445273665}
   m_Layer: 0
   m_Name: socket_1
   m_TagString: Untagged
@@ -6854,6 +6894,18 @@ MonoBehaviour:
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   targetTag: CannonFuse
+--- !u!114 &1445273665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445273661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7f0e919a32b834d92f43cd15be6c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1461238096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7825,6 +7877,8 @@ MonoBehaviour:
   charging: 0
   regularBlast: {fileID: 2068402075}
   chargedBlast: {fileID: 1666496316}
+  regularClip: {fileID: 8300000, guid: 5812fc58ec23e814c8d06fe50af61ca5, type: 3}
+  chargedClip: {fileID: 8300000, guid: 1035986154000674baf807d1e4f58fb9, type: 3}
 --- !u!114 &1491529281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9181,6 +9235,102 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6178149417618222333, guid: a4d4daa634712284fbfd96059740c1af, type: 3}
+--- !u!82 &1626075127
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491529272}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1666496315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10965,6 +11115,7 @@ GameObject:
   - component: {fileID: 2099572768}
   - component: {fileID: 2099572770}
   - component: {fileID: 2099572769}
+  - component: {fileID: 2099572771}
   m_Layer: 0
   m_Name: socket_3
   m_TagString: Untagged
@@ -11056,6 +11207,18 @@ MonoBehaviour:
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   targetTag: CannonFuse
+--- !u!114 &2099572771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099572767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7f0e919a32b834d92f43cd15be6c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2111113275
 GameObject:
   m_ObjectHideFlags: 0
