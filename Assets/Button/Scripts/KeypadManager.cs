@@ -12,10 +12,11 @@ public class KeypadManager : MonoBehaviour
     public List<int> pressOrder = new List<int>();
     public List<DoorButtonVR> buttons = new List<DoorButtonVR>();
     public List<int> code = new List<int> { 1, 3, 2, 4};
-    private float lastFusePower = 1;
+    public bool fuseInserted = false;
     public float fusePower = 1;
     public XRSocketInteractor fuseInteractor;
     public TextMeshPro tvScreen;
+    public bool allowClosing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +51,7 @@ public class KeypadManager : MonoBehaviour
                 keypadScreen.color = Color.green;
                 keypadScreen.text = "Accepted";
                 tvScreen.text = "";
+                allowClosing = true;
             }
             else
             {
@@ -62,19 +64,14 @@ public class KeypadManager : MonoBehaviour
                 button.ResetButton();
             }
         }
-
-        lastFusePower = fusePower;
-        if (fuseInteractor.hasSelection) // If fuse is plugged into socket and door doesn't need to be reset
+        
+        if (!fuseInteractor.hasSelection) // If fuse isnt plugged into socket and door doesn't need to be reset
         {
-            fusePower = fuseInteractor.GetOldestInteractableSelected().transform.gameObject.GetComponent<FusePower>().charge;
-        }
-        else
+            fuseInserted = false;
+        } else if (fuseInteractor.hasSelection && !fuseInserted) // When a new fuse is plugged into socket
         {
-            fusePower = 0;
-        }
-
-        if (lastFusePower==0 && fusePower>0) // When a new fuse is plugged into socket
-        {
+            fuseInserted = true;
+            allowClosing = false;
             // Change code on keypad
             System.Random rand = new System.Random();
             for (int i = 0; i < code.Count; i++)
@@ -91,6 +88,11 @@ public class KeypadManager : MonoBehaviour
             // Set text
             List<string> strings = code.ConvertAll<string>(x => x.ToString());
             tvScreen.text = "Enter " + String.Join(", ", strings) + " To Reactivate Door";
+        }
+
+        if (fuseInteractor.hasSelection)
+        {
+            fusePower = fuseInteractor.GetOldestInteractableSelected().transform.gameObject.GetComponent<FusePower>().charge;
         }
     }
 

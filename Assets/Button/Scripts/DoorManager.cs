@@ -36,16 +36,14 @@ public class DoorManager : MonoBehaviour
     {
         if (doorIsOpen)
         {
-            if (keypadManager.fusePower > 0 && keypadManager.tvScreen.text=="") // Door fuse has power in it and is plugged in
+            if (keypadManager.fusePower > 0 && keypadManager.allowClosing) // Door fuse has power in it and is plugged in
             {
                 doorMovementPercentage -= 0.01f*doorSpeed;
                 doorMovementPercentage = Mathf.Clamp(doorMovementPercentage, 0, 1);
                 upperDoor.transform.localPosition = Vector3.Lerp(doorUpperClosedPose, doorUpperOpenPose, doorMovementPercentage);
                 lowerDoor.transform.localPosition = Vector3.Lerp(doorLowerClosedPose, doorLowerOpenPose, doorMovementPercentage);
                 keypadManager.KeyFuseDrain(fuseTime); // Drain the fuse on this doors keypad
-            }
-            if (keypadManager.fusePower == 0) // If the fuse runs out of battery then open the door
-            {
+            } else {
                 doorIsOpen = false;
             }
         }

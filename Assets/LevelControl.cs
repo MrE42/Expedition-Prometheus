@@ -37,16 +37,16 @@ public class LevelControl : MonoBehaviour
     {
         if (numAliveEnemys==0 && startWave) // CURRENT WAVE IS FINISHED && Intermidiate Timer Is Over
         {
-            startWave = false;
             if (gameOver) // GAME OVER
             {
-                
+                startWave = false;
             }
             else // START NEXT WAVE
             {
                 currentWaveNumber += 1;
                 StartWave(currentWaveNumber);
                 hs.UpdateWaveText(currentWaveNumber);
+                startWave = false;
             }
             
         } else if (numAliveEnemys == 0 && !startWave && currentWaveNumber != -1)
