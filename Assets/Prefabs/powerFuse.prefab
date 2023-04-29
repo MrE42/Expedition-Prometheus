@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 179b7f67370eeb14099e57049f76cad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brightness: 5
 --- !u!1 &898907884780808830
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charge: 1
   sparks: {fileID: 1590143215086810653}
+  sparking: {fileID: 8300000, guid: 4fadd21ff7f43b946a4c184c54ad4cb3, type: 3}
 --- !u!82 &5748598759705732031
 AudioSource:
   m_ObjectHideFlags: 0

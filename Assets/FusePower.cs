@@ -7,6 +7,7 @@ public class FusePower : MonoBehaviour
 
     public float charge = 1;
     public ParticleSystem sparks;
+    public AudioClip sparking;
     private float sparkTime = 0;
 
     // Start is called before the first frame update
@@ -26,11 +27,13 @@ public class FusePower : MonoBehaviour
         if (charge == 0)
         {
             sparkTime += Time.deltaTime;
-            if (sparkTime >= 3)
+            if (sparkTime >= sparking.length)
             {
                 sparks.Stop();
                 sparkTime = 0;
                 sparks.Play();
+                gameObject.GetComponent<AudioSource>().clip = sparking;
+                gameObject.GetComponent<AudioSource>().Play();
             }
         }
     }

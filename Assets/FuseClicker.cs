@@ -8,6 +8,7 @@ public class FuseClicker : MonoBehaviour
 {
     
     private bool click = true;
+    public AudioClip clicking;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class FuseClicker : MonoBehaviour
         if (gameObject.GetComponent<SocketWithTagCheck>().hasSelection && !click)
         {
             click = true;
+            gameObject.GetComponent<SocketWithTagCheck>().GetOldestInteractableSelected().transform.gameObject.GetComponent<AudioSource>().clip = clicking;
             gameObject.GetComponent<SocketWithTagCheck>().GetOldestInteractableSelected().transform.gameObject.GetComponent<AudioSource>().Play();
         } else if (!gameObject.GetComponent<SocketWithTagCheck>().hasSelection)
         {
