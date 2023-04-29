@@ -15,8 +15,18 @@ public class DoorPowerBars : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<MeshRenderer>().material.color = new Color(0, keypadManager.fusePower, 0);
+        float percentage = keypadManager.fusePower;
+        Color startColor = Color.red;
+        Color middleColor = Color.yellow;
+        Color endColor = Color.green;
+        Color lerpedColor;
+        if (percentage < 0.5f) {
+            lerpedColor = Color.Lerp(startColor, middleColor, percentage * 2f);
+        } else {
+            lerpedColor = Color.Lerp(middleColor, endColor, (percentage - 0.5f) * 2f);
+        }
+        gameObject.GetComponent<MeshRenderer>().material.color = lerpedColor;
         gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
-        gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Vector4(0, keypadManager.fusePower, 0, 0) * brightness);
+        gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", lerpedColor * brightness);
     }
 }
