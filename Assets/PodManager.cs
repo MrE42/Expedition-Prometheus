@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -52,7 +53,7 @@ public class PodManager : MonoBehaviour
         if (endPhase == 2 && transportMP == 0)
         {
             endPhase = 3;
-            buttonText.GetComponent<TMPro.TextMeshProUGUI>().text = "Press To Launch Seed";
+            buttonText.GetComponent<TextMeshPro>().text = "Press To Launch Seed";
         }
 
         if (endPhase == 3 && endButton.buttonClicked)
