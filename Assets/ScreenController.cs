@@ -13,7 +13,7 @@ public class ScreenController : MonoBehaviour
 
     public int wave;
 
-    private AudioSource speaker;
+    public AudioSource speaker;
 
     public AudioClip Hello;
 
@@ -35,7 +35,7 @@ public class ScreenController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speaker = gameObject.GetComponent<AudioSource>();
+        //speaker = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
