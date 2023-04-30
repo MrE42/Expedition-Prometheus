@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DoorControllButton : MonoBehaviour
 {
+    public ScreenController screen;
     public GameObject handLeft;
     public GameObject handRight;
     public DoorManager doorManager;
@@ -31,6 +32,10 @@ public class DoorControllButton : MonoBehaviour
                 doorManager.doorIsOpen = !doorManager.doorIsOpen;
             }
             gameObject.transform.position = buttonDown;
+            if (screen != null)
+            {
+                screen.DoorPress();
+            }
         }
     }
     private void OnTriggerExit(Collider other)

@@ -32,6 +32,7 @@ public class FireBulletOnActivate : MonoBehaviour
 
     private AudioSource speaker;
 
+    public ScreenController screen;
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +111,10 @@ public class FireBulletOnActivate : MonoBehaviour
     
     public void FireChargedShot()
     {
+        if (screen != null)
+        {
+            screen.PowerShot();
+        }
         speaker.Stop();
         speaker.clip = chargedClip;
         speaker.Play();
