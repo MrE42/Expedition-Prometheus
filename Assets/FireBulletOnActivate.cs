@@ -29,7 +29,8 @@ public class FireBulletOnActivate : MonoBehaviour
 
     public AudioClip regularClip;
     public AudioClip chargedClip;
-
+    public AudioClip chargingClip;
+    
     private AudioSource speaker;
 
     public ScreenController screen;
@@ -72,6 +73,9 @@ public class FireBulletOnActivate : MonoBehaviour
             BulletTime = Time.deltaTime;
             regularBlast.Stop();
             chargedBlast.Stop();
+            speaker.Stop();
+            speaker.clip = chargingClip;
+            speaker.Play();
         }
     }
     

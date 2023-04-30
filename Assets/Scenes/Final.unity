@@ -8144,6 +8144,7 @@ MonoBehaviour:
   chargedBlast: {fileID: 1666496316}
   regularClip: {fileID: 8300000, guid: 5812fc58ec23e814c8d06fe50af61ca5, type: 3}
   chargedClip: {fileID: 8300000, guid: 1035986154000674baf807d1e4f58fb9, type: 3}
+  chargingClip: {fileID: 8300000, guid: 73fcceacba11cf1469e67028d7edf2e6, type: 3}
   screen: {fileID: 7415219919545866734}
 --- !u!114 &1491529281
 MonoBehaviour:
