@@ -15906,7 +15906,7 @@ MonoBehaviour:
   doorIsOpen: 0
   doorSpeed: 0.6
   keypadManager: {fileID: 3678035498088261059}
-  fuseTime: 20
+  fuseTime: 30
   doorOffset: 0.14
   doorMovementPercentage: 0
 --- !u!1 &5034144268947786482
@@ -16136,7 +16136,7 @@ MonoBehaviour:
   doorIsOpen: 0
   doorSpeed: 0.6
   keypadManager: {fileID: 766596711}
-  fuseTime: 20
+  fuseTime: 30
   doorOffset: 0.14
   doorMovementPercentage: 0
 --- !u!4 &5206713100255801547
@@ -18617,7 +18617,7 @@ MonoBehaviour:
   doorIsOpen: 0
   doorSpeed: 0.6
   keypadManager: {fileID: 1303095784}
-  fuseTime: 20
+  fuseTime: 30
   doorOffset: 0.14
   doorMovementPercentage: 0
 --- !u!33 &7793442830894880039
