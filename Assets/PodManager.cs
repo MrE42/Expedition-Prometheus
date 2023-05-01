@@ -14,12 +14,12 @@ public class PodManager : MonoBehaviour
     public int endPhase = 0;
 
     private GameObject transport;
-    public float moveSpeed = 1;
+    public float moveSpeed = 0.1f;
     
     private Vector3 transportDown;
     private Vector3 transportUp;
 
-    public float transportOffset = 0.14f;
+    public float transportOffset = 0.085f;
     private float podStartMovement = 0;
     public float transportMP = 0;
 

@@ -14612,7 +14612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &3371181554327867772
 GameObject:
   m_ObjectHideFlags: 0
@@ -17311,6 +17311,9 @@ GameObject:
   - component: {fileID: 7646297851445531615}
   - component: {fileID: 7590686635020601873}
   - component: {fileID: 4001391855760502924}
+  - component: {fileID: 7646297851445531618}
+  - component: {fileID: 7646297851445531617}
+  - component: {fileID: 7646297851445531616}
   m_Layer: 0
   m_Name: button
   m_TagString: Untagged
@@ -17402,6 +17405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7584979692008942459}
+  - component: {fileID: 7584979692008942460}
   m_Layer: 0
   m_Name: handScan
   m_TagString: Untagged
@@ -18387,6 +18391,7 @@ MonoBehaviour:
   Reached: {fileID: 8300000, guid: 54cdaf9cbf6a0b643b1e200c52d6328f, type: 3}
   Doors: {fileID: 8300000, guid: e38097e0ef7a6c4429f0702372d181d0, type: 3}
   powerShot: {fileID: 8300000, guid: 8ad3b7fb140c63342ac2da0c93913019, type: 3}
+  selfDestruct: 0
 --- !u!1 &7439655023264866919
 GameObject:
   m_ObjectHideFlags: 0
@@ -18525,6 +18530,22 @@ Transform:
   m_Father: {fileID: 1927332519898777096}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7584979692008942460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6320704847924771755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9debd4f8b342364a83692fa45555098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: {fileID: 997266117}
+  moveSpeed: 0.1
+  Offset: 0.06
+  MP: 0
 --- !u!33 &7590686635020601873
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18556,6 +18577,53 @@ Transform:
   m_Father: {fileID: 3944116139755897221}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7646297851445531616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6088687553970536247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 067ee85a593294e4e95dab92cc4e537a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelControl: {fileID: 997266117}
+  screen: {fileID: 7415219919545866734}
+  handLeft: {fileID: 655423601}
+  handRight: {fileID: 999892480}
+  buttonClicked: 0
+--- !u!64 &7646297851445531617
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6088687553970536247}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6113606344124860467, guid: 6e58a58b8ef6ebd49a8b964c9cebf0a3, type: 3}
+--- !u!54 &7646297851445531618
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6088687553970536247}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &7694063929605277296
 Transform:
   m_ObjectHideFlags: 0

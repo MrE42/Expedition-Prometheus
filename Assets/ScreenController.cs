@@ -37,6 +37,8 @@ public class ScreenController : MonoBehaviour
     public AudioClip Doors;
 
     public AudioClip powerShot;
+
+    public bool selfDestruct = false;
     // Start is called before the first frame update
     void Start()
     {
