@@ -68,6 +68,7 @@ public class KeypadManager : MonoBehaviour
         if (!fuseInteractor.hasSelection) // If fuse isnt plugged into socket and door doesn't need to be reset
         {
             fuseInserted = false;
+            allowClosing = false;
         } else if (fuseInteractor.hasSelection && !fuseInserted) // When a new fuse is plugged into socket
         {
             fuseInserted = true;
