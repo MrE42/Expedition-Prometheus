@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.031109823, g: 0.009473317, b: 0.012994485, a: 1}
+  m_IndirectSpecularColor: {r: 0.031163083, g: 0.009459269, b: 0.013044128, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -574,7 +574,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &79287003
 MonoBehaviour:
@@ -6404,7 +6404,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1070794475}
-  - component: {fileID: 1070794477}
   - component: {fileID: 1070794476}
   - component: {fileID: 1070794478}
   m_Layer: 0
@@ -6441,20 +6440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bffdbd6593053e4a844023ae4b73f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screen: {fileID: 0}
---- !u!135 &1070794477
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070794474}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  screen: {fileID: 7415219919545866734}
+  player: {fileID: 1614744091}
 --- !u!82 &1070794478
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13005,7 +12992,7 @@ RectTransform:
   - {fileID: 447795120}
   - {fileID: 1228119949}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

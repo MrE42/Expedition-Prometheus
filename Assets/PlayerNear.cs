@@ -6,9 +6,11 @@ using UnityEngine;
 public class PlayerNear : MonoBehaviour
 {
     public ScreenController screen;
-    private void OnTriggerEnter(Collider other)
+    public GameObject player;
+
+    void Update()
     {
-        if (other.transform.gameObject.CompareTag("Player"))
+        if (Vector3.Distance(gameObject.transform.position, player.transform.position) < 1)
         {
             screen.nearby = true;
         }

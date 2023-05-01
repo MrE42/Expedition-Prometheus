@@ -97,28 +97,34 @@ public class ScreenController : MonoBehaviour
                 speaker.clip = Sensors;
                 speaker.Play();
             }
-        } else if (wave == 1 && !speaker.isPlaying)
+        } else if (wave == 1 && !speaker.isPlaying && cc != 4)
         {
+            cc = 4;
             speaker.clip = Scans;
             speaker.Play();
-        } else if (wave == 3 && !speaker.isPlaying)
+        } else if (wave == 3 && !speaker.isPlaying && cc != 5)
         {
+            cc = 5;
             speaker.clip = Endless;
             speaker.Play();
-        } else if (wave == 5 && !speaker.isPlaying)
+        } else if (wave == 5 && !speaker.isPlaying && cc != 6)
         {
+            cc = 6;
             speaker.clip = Halfway;
             speaker.Play();
-        } else if (wave == 7 && !speaker.isPlaying)
+        } else if (wave == 7 && !speaker.isPlaying && cc != 7)
         {
+            cc = 7;
             speaker.clip = Mutating;
             speaker.Play();
-        } else if (wave == 10 && !speaker.isPlaying)
+        } else if (wave == 10 && !speaker.isPlaying && cc != 8)
         {
+            cc = 8;
             speaker.clip = Endless;
             speaker.Play();
-        } else if (!speaker.isPlaying && level.gameOver)
+        } else if (!speaker.isPlaying && level.gameOver && cc != 8)
         {
+            cc = 9;
             speaker.clip = Reached;
             speaker.Play();
         }
