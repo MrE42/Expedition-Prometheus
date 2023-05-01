@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class LevelControl : MonoBehaviour
 {
@@ -16,7 +18,6 @@ public class LevelControl : MonoBehaviour
     public bool startWave = false;
     public bool gameOver = false;
     public int numAliveEnemys = 0;
-
     public float waveTime = 20;
     public float waveTimer = 0;
 
@@ -57,7 +58,6 @@ public class LevelControl : MonoBehaviour
             {
                 hs.UpdateWaveTimer(waveTimer);
             }
-
         }
     }
 
