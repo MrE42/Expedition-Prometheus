@@ -6397,7 +6397,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -20510,6 +20510,7 @@ MonoBehaviour:
   speaker: {fileID: 1070794478}
   Hello: {fileID: 8300000, guid: 4ac288f63492318429a2d40c5d440c53, type: 3}
   nearby: 0
+  cc: 0
   Alive: {fileID: 8300000, guid: fe717f21f9e4ac145b10215fd2e6088a, type: 3}
   Unlikely: {fileID: 8300000, guid: 76d5513d7a4d25f4282bce8142233366, type: 3}
   Sensors: {fileID: 8300000, guid: 977f9bd93049ffc4797a864809d8c272, type: 3}
@@ -20784,8 +20785,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

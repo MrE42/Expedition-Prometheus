@@ -22,7 +22,7 @@ public class ScreenController : MonoBehaviour
     private bool firstDoor = true;
     private bool firstPower = true;
 
-    private int cc = 0;
+    public int cc = 0;
     
     public AudioClip Alive;
     public AudioClip Unlikely;
