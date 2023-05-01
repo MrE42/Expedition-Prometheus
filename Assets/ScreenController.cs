@@ -28,6 +28,11 @@ public class ScreenController : MonoBehaviour
     public AudioClip Sensors;
 
     public AudioClip Scans;
+    public AudioClip Endless;
+    public AudioClip Halfway;
+    public AudioClip Mutating;
+    public AudioClip Warning;
+    public AudioClip Reached;
     
     public AudioClip Doors;
 
@@ -71,6 +76,30 @@ public class ScreenController : MonoBehaviour
                 speaker.clip = Sensors;
                 speaker.Play();
             }
+        } else if (wave == 1 && !speaker.isPlaying)
+        {
+            speaker.clip = Scans;
+            speaker.Play();
+        } else if (wave == 3 && !speaker.isPlaying)
+        {
+            speaker.clip = Endless;
+            speaker.Play();
+        } else if (wave == 5 && !speaker.isPlaying)
+        {
+            speaker.clip = Halfway;
+            speaker.Play();
+        } else if (wave == 7 && !speaker.isPlaying)
+        {
+            speaker.clip = Mutating;
+            speaker.Play();
+        } else if (wave == 10 && !speaker.isPlaying)
+        {
+            speaker.clip = Endless;
+            speaker.Play();
+        } else if (!speaker.isPlaying && level.gameOver)
+        {
+            speaker.clip = Reached;
+            speaker.Play();
         }
     }
 
