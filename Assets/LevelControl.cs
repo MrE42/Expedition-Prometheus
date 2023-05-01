@@ -24,11 +24,6 @@ public class LevelControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (finalWave > waves.Count - 1)
-        {
-            finalWave = waves.Count - 1;
-        }
-
         waveTimer = waveTime;
     }
 
