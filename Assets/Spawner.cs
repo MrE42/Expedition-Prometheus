@@ -5,6 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject enemy1;
+    public GameObject enemy2;
+    public GameObject enemy3;
     private Queue<int> spawnQueue = new Queue<int> { };
     public LevelControl levelControler;
     public bool allEnemysDead = true;
@@ -42,8 +44,22 @@ public class Spawner : MonoBehaviour
             spawnedEnemy.transform.position = gameObject.transform.position;
             spawnedEnemy.GetComponent<crewmateAI>().target = enemysTarget;
             spawnedEnemy.GetComponent<crewmateAI>().levelControler = levelControler;
-            //spawnedBullet.transform.rotation = spawnPointSmall.rotation;
-            //Destroy(spawnedBullet, 5);
+        }
+        if (type == 2)
+        {
+            GameObject spawnedEnemy = Instantiate(enemy2);
+            levelControler.numAliveEnemys = levelControler.numAliveEnemys + 1;
+            spawnedEnemy.transform.position = gameObject.transform.position;
+            spawnedEnemy.GetComponent<crewmateAI>().target = enemysTarget;
+            spawnedEnemy.GetComponent<crewmateAI>().levelControler = levelControler;
+        }
+        if (type == 3)
+        {
+            GameObject spawnedEnemy = Instantiate(enemy3);
+            levelControler.numAliveEnemys = levelControler.numAliveEnemys + 1;
+            spawnedEnemy.transform.position = gameObject.transform.position;
+            spawnedEnemy.GetComponent<crewmateAI>().target = enemysTarget;
+            spawnedEnemy.GetComponent<crewmateAI>().levelControler = levelControler;
         }
     }
 }
