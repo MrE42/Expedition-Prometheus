@@ -61,6 +61,9 @@ public class FireBulletOnActivate : MonoBehaviour
             {
                 charging = true;
                 chargingParticles.Play();
+                speaker.Stop();
+                speaker.clip = chargingClip;
+                speaker.Play();
             }
         }
     }
@@ -73,9 +76,6 @@ public class FireBulletOnActivate : MonoBehaviour
             BulletTime = Time.deltaTime;
             regularBlast.Stop();
             chargedBlast.Stop();
-            speaker.Stop();
-            speaker.clip = chargingClip;
-            speaker.Play();
         }
     }
     
