@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class ScreenController : MonoBehaviour
 {
@@ -48,7 +49,13 @@ public class ScreenController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (speaker.isPlaying)
+        if (selfDestruct)
+        {
+            if (!gameObject.GetComponent<VideoPlayer>().isPlaying)
+            {
+                //Explode & end game!
+            }
+        } else if (speaker.isPlaying)
         {
             gameObject.GetComponent<MeshRenderer>().material = displayText;
         }

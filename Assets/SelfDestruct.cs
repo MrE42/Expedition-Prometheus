@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class SelfDestruct : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class SelfDestruct : MonoBehaviour
                 if (levelControl.gameOver)
                 {
                     screen.selfDestruct = true;
+                    screen.gameObject.GetComponent<VideoPlayer>().Play();
                 }
             }
             gameObject.transform.position = buttonDown;
