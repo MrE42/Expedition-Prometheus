@@ -44,6 +44,7 @@ public class Spawner : MonoBehaviour
             spawnedEnemy.transform.position = gameObject.transform.position;
             spawnedEnemy.GetComponent<crewmateAI>().target = enemysTarget;
             spawnedEnemy.GetComponent<crewmateAI>().levelControler = levelControler;
+            spawnedEnemy.tag = "SpawnedAI";
         }
         if (type == 2)
         {
@@ -52,6 +53,7 @@ public class Spawner : MonoBehaviour
             spawnedEnemy.transform.position = gameObject.transform.position;
             spawnedEnemy.GetComponent<crewmateAI>().target = enemysTarget;
             spawnedEnemy.GetComponent<crewmateAI>().levelControler = levelControler;
+            spawnedEnemy.tag = "SpawnedAI";
         }
         if (type == 3)
         {
@@ -60,6 +62,7 @@ public class Spawner : MonoBehaviour
             spawnedEnemy.transform.position = gameObject.transform.position;
             spawnedEnemy.GetComponent<crewmateAI>().target = enemysTarget;
             spawnedEnemy.GetComponent<crewmateAI>().levelControler = levelControler;
+            spawnedEnemy.tag = "SpawnedAI";
         }
     }
 }

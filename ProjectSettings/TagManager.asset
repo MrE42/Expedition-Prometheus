@@ -17,6 +17,7 @@ TagManager:
   - HealthSprite
   - CannonFuse
   - ThePod
+  - SpawnedAI
   layers:
   - Default
   - TransparentFX

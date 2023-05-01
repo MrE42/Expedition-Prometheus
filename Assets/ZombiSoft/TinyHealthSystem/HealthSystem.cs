@@ -12,6 +12,8 @@ using System.Collections;
 using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -31,6 +33,7 @@ public class HealthSystem : MonoBehaviour
 	public Text manaText;
 	public float manaPoint = 100f;
 	public float maxManaPoint = 100f;
+	public LevelControl levelController;
 
 	//==============================================================
 	// Regenerate Health & Mana
@@ -39,7 +42,9 @@ public class HealthSystem : MonoBehaviour
 	public float regen = 0.1f;
 	private float timeleft = 0.0f;	// Left time for current interval
 	public float regenUpdateInterval = 1f;
-
+	public Volume postProcessingVolume;
+	private float deathStart = 0;
+	private bool cleanupRan = false;
 	public bool GodMode;
 
 	//==============================================================
@@ -76,6 +81,42 @@ public class HealthSystem : MonoBehaviour
 		else
 		{
 			manaPoint = 0;
+		}
+		if (deathStart!=0 && Time.time-deathStart<10) // If character has died
+		{
+			if (!cleanupRan)
+            {
+				DeleteEnemys();
+				hitPoint = 100;
+				levelController.currentWaveNumber = -1;
+				levelController.startWave = false;
+				levelController.gameOver = false;
+				levelController.numAliveEnemys = 0;
+				cleanupRan = true;
+            }
+			ColorAdjustments colorAdjustment;
+			if (postProcessingVolume.profile.TryGet<ColorAdjustments>(out colorAdjustment))
+			{
+				colorAdjustment.saturation.value = -100f;
+			}
+		}else if (deathStart!=0 && Time.time-deathStart>10)
+        {
+			ColorAdjustments colorAdjustment;
+			if (postProcessingVolume.profile.TryGet<ColorAdjustments>(out colorAdjustment))
+			{
+				colorAdjustment.saturation.value = 100f;
+			}
+			deathStart = 0;
+			cleanupRan = false;
+		}
+	}
+
+	public void DeleteEnemys()
+    {
+		GameObject[] enemys = GameObject.FindGameObjectsWithTag("SpawnedAI");
+		foreach (GameObject enemy in enemys)
+		{
+			Destroy(enemy);
 		}
 	}
 
@@ -141,7 +182,10 @@ public class HealthSystem : MonoBehaviour
 		hitPoint -= Damage;
 		if (hitPoint < 1)
 			hitPoint = 0;
-
+		if (hitPoint==0 && deathStart==0)
+        {
+			deathStart = Time.time;
+		}
 		UpdateGraphics();
 
 		StartCoroutine(PlayerHurts());
