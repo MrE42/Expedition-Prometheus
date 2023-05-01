@@ -22,7 +22,7 @@ public class ScreenController : MonoBehaviour
     private bool firstDoor = true;
     private bool firstPower = true;
 
-    public int cc = 0;
+    public int cc = -1;
     
     public AudioClip Alive;
     public AudioClip Unlikely;
@@ -40,6 +40,9 @@ public class ScreenController : MonoBehaviour
     public AudioClip powerShot;
 
     public bool selfDestruct = false;
+
+    private float startTime = 0;
+    public float startTimer = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +66,16 @@ public class ScreenController : MonoBehaviour
         {
             gameObject.GetComponent<MeshRenderer>().material = blankScreen;
         }
-        
+
+        if (cc == -1)
+        {
+            startTime += Time.deltaTime;
+        }
+
+        if (startTime >= startTimer)
+        {
+            cc = 0;
+        }
         
         wave = level.currentWaveNumber + 1;
 
