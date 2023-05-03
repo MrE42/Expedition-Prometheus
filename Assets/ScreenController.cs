@@ -104,23 +104,23 @@ public class ScreenController : MonoBehaviour
                     Play();
                     next_clip = Scans;
                 }
-            } else if (wave == 1 && next_clip != 4)
+            } else if (wave == 1 && next_clip == Scans)
             {
                 Play();
                 next_clip = Endless;
-            } else if (wave == 3 && next_clip != 5)
+            } else if (wave == 3 && next_clip == Endless)
             {
                 Play();
                 next_clip = Halfway;
-            } else if (wave == 5 && next_clip != 6)
+            } else if (wave == 5 && next_clip == Halfway)
             {
                 Play();
                 next_clip = Mutating;
-            } else if (wave == 7 && next_clip != 7)
+            } else if (wave == 7 && next_clip == Mutating)
             {
                 Play();
-                next_clip = Endless;
-            } else if (wave == 10 && next_clip == Endless)
+                next_clip = Warning;
+            } else if (wave == 10 && next_clip == Warning)
             {
                 Play();
                 next_clip = Reached;
