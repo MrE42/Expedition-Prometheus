@@ -15,7 +15,6 @@ public class ScannerController : MonoBehaviour
     private Vector3 scanRight;
 
     public float Offset = 0.085f;
-    private float SM = 0;
     public float MP = 0;
     
     // Start is called before the first frame update
