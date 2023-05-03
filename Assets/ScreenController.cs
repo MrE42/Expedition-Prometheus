@@ -22,8 +22,6 @@ public class ScreenController : MonoBehaviour
     private bool firstDoor = true;
     private bool firstPower = true;
 
-    public int cc = -1;
-    
     public AudioClip Alive;
     public AudioClip Unlikely;
     public AudioClip Sensors;
@@ -43,6 +41,8 @@ public class ScreenController : MonoBehaviour
 
     private float startTime = 0;
     public float startTimer = 5;
+    
+    private AudioClip next_clip = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,67 +67,71 @@ public class ScreenController : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().material = blankScreen;
         }
 
-        if (cc == -1)
+        if (next_clip is null)
         {
             startTime += Time.deltaTime;
         }
 
         if (startTime >= startTimer)
         {
-            cc = 0;
+            startTime = 0;
+            if (!level.gameOver)
+            {
+                next_clip = Hello;
+            }
+            else
+            {
+                
+            }
         }
         
         wave = level.currentWaveNumber + 1;
 
-        if (wave == 0)
+        if (!speaker.isPlaying)
         {
-            if (cc == 0)
+            if (wave == 0)
             {
-                cc = 1;
-                speaker.clip = Hello;
-                speaker.Play();
-            } else if (cc == 1 && !speaker.isPlaying && nearby)
+                if (next_clip == Hello)
+                {
+                    Play();
+                    next_clip = Unlikely;
+                } else if (next_clip == Unlikely && nearby)
+                {
+                    Play();
+                    next_clip = Sensors;
+                } else if (next_clip == Sensors)
+                {
+                    Play();
+                    next_clip = Scans;
+                }
+            } else if (wave == 1 && next_clip == Scans)
             {
-                cc = 2;
-                speaker.clip = Unlikely;
-                speaker.Play();
-            } else if (cc == 2 && !speaker.isPlaying)
+                Play();
+                next_clip = Endless;
+            } else if (wave == 3 && next_clip == Endless)
             {
-                cc = 3;
-                speaker.clip = Sensors;
-                speaker.Play();
-            }
-        } else if (wave == 1 && !speaker.isPlaying && cc != 4)
-        {
-            cc = 4;
-            speaker.clip = Scans;
-            speaker.Play();
-        } else if (wave == 3 && !speaker.isPlaying && cc != 5)
-        {
-            cc = 5;
-            speaker.clip = Endless;
-            speaker.Play();
-        } else if (wave == 5 && !speaker.isPlaying && cc != 6)
-        {
-            cc = 6;
-            speaker.clip = Halfway;
-            speaker.Play();
-        } else if (wave == 7 && !speaker.isPlaying && cc != 7)
-        {
-            cc = 7;
-            speaker.clip = Mutating;
-            speaker.Play();
-        } else if (wave == 10 && !speaker.isPlaying && cc != 8)
-        {
-            cc = 8;
-            speaker.clip = Endless;
-            speaker.Play();
-        } else if (!speaker.isPlaying && level.gameOver && cc != 8)
-        {
-            cc = 9;
-            speaker.clip = Reached;
-            speaker.Play();
+                Play();
+                next_clip = Halfway;
+            } else if (wave == 5 && next_clip == Halfway)
+            {
+                Play();
+                next_clip = Mutating;
+            } else if (wave == 7 && next_clip == Mutating)
+            {
+                Play();
+                next_clip = Warning;
+            } else if (wave == 10 && next_clip == Warning)
+            {
+                Play();
+                next_clip = Reached;
+            } else if (level.gameOver && next_clip == Reached)
+            {
+                Play();
+                next_clip = null;
+                startTime = 0;
+            } 
         }
+        
     }
 
     public void DoorPress()
@@ -150,6 +154,12 @@ public class ScreenController : MonoBehaviour
         }
 
         firstPower = false;
+    }
+
+    private void Play()
+    {
+        speaker.clip = next_clip;
+        speaker.Play();
     }
     
 }
