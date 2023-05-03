@@ -95,11 +95,11 @@ public class ScreenController : MonoBehaviour
                 {
                     Play();
                     next_clip = Unlikely;
-                } else if (next_clip == 1 && nearby)
+                } else if (next_clip == Unlikely && nearby)
                 {
                     Play();
                     next_clip = Sensors;
-                } else if (next_clip == 2)
+                } else if (next_clip == Sensors)
                 {
                     Play();
                     next_clip = Scans;
