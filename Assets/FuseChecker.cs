@@ -11,7 +11,7 @@ public class FuseChecker : MonoBehaviour
     public int fusesInserted = 0;
     public bool killable = false;
     public float total_charge = 0;
-    public int requiredFuses = 5;
+    public int requiredFuses = 4;
 
     // Update is called once per frame
     void Update()
