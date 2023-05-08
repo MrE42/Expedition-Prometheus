@@ -25,12 +25,14 @@ public class ScreenController : MonoBehaviour
     public AudioClip Alive;
     public AudioClip Unlikely;
     public AudioClip Sensors;
+    public AudioClip Keypad;
 
     public AudioClip Scans;
     public AudioClip Endless;
     public AudioClip Halfway;
     public AudioClip Mutating;
     public AudioClip Warning;
+    public AudioClip Instructions;
     public AudioClip Reached;
     
     public AudioClip Doors;
@@ -40,7 +42,7 @@ public class ScreenController : MonoBehaviour
     public bool selfDestruct = false;
 
     private float startTime = 0;
-    public float startTimer = 5;
+    public float startTimer = 10;
     
     private AudioClip next_clip = null;
     // Start is called before the first frame update
@@ -67,7 +69,7 @@ public class ScreenController : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().material = blankScreen;
         }
 
-        if (next_clip is null)
+        if (next_clip is null && level.gameOver == selfDestruct)
         {
             startTime += Time.deltaTime;
         }
@@ -81,7 +83,7 @@ public class ScreenController : MonoBehaviour
             }
             else
             {
-                
+                //Explosion / Game Ending Sound
             }
         }
         
@@ -102,6 +104,10 @@ public class ScreenController : MonoBehaviour
                 } else if (next_clip == Sensors)
                 {
                     Play();
+                    next_clip = Keypad;
+                } else if (next_clip == Keypad)
+                {
+                    Play();
                     next_clip = Scans;
                 }
             } else if (wave == 1 && next_clip == Scans)
@@ -120,7 +126,11 @@ public class ScreenController : MonoBehaviour
             {
                 Play();
                 next_clip = Warning;
-            } else if (wave == 10 && next_clip == Warning)
+            } else if (wave == 9 && next_clip == Warning)
+            {
+                Play();
+                next_clip = Instructions;
+            } else if (wave == 10 && next_clip == Instructions)
             {
                 Play();
                 next_clip = Reached;
