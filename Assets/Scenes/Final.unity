@@ -24474,7 +24474,7 @@ MonoBehaviour:
   transportMP: 0
   endButton: {fileID: 1270233325}
   buttonText: {fileID: 1999472697}
-  podShip: {fileID: 919132149155446097, guid: b94ac770d5ae9814b905772459c9fc53, type: 3}
+  podShip: {fileID: 3960861761113688975, guid: 8df8120b5bed9ba48806835e2470cb68, type: 3}
   podPosition: {fileID: 1108189979}
   launchVelocity: 10
 --- !u!64 &8840667992869411038
