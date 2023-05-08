@@ -6925,7 +6925,7 @@ MonoBehaviour:
   gameOver: 0
   numAliveEnemys: 0
   waveTimer: 0
-  finalWave: 10
+  finalWave: 2
 --- !u!1 &999892480
 GameObject:
   m_ObjectHideFlags: 0
