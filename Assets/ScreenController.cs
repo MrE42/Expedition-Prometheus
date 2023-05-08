@@ -41,7 +41,7 @@ public class ScreenController : MonoBehaviour
 
     public bool selfDestruct = false;
 
-    private float startTime = 0;
+    public float startTime = 0;
     public float startTimer = 10;
     
     private AudioClip next_clip = null;
@@ -69,7 +69,7 @@ public class ScreenController : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().material = blankScreen;
         }
 
-        if (next_clip is null && level.gameOver == selfDestruct)
+        if (next_clip is null)
         {
             startTime += Time.deltaTime;
         }
@@ -77,17 +77,16 @@ public class ScreenController : MonoBehaviour
         if (startTime >= startTimer)
         {
             startTime = 0;
-            if (!level.gameOver)
-            {
-                next_clip = Hello;
-            }
-            else
-            {
-                //Explosion / Game Ending Sound
-            }
+            next_clip = Hello;
         }
         
         wave = level.currentWaveNumber + 1;
+
+        if (wave == 1 && !nearby && next_clip != Endless)
+        {
+            next_clip = Scans;
+        }
+
 
         if (!speaker.isPlaying)
         {
@@ -110,8 +109,9 @@ public class ScreenController : MonoBehaviour
                     Play();
                     next_clip = Scans;
                 }
-            } else if (wave == 1 && next_clip == Scans)
+            } else if (wave == 1 && next_clip != Endless)
             {
+                next_clip = Scans;
                 Play();
                 next_clip = Endless;
             } else if (wave == 3 && next_clip == Endless)
