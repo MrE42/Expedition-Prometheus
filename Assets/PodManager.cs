@@ -25,6 +25,11 @@ public class PodManager : MonoBehaviour
 
     public StartRoundButton endButton;
     public GameObject buttonText;
+
+    public GameObject podShip;
+    public Transform podPosition;
+    public float launchVelocity = 10;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +64,12 @@ public class PodManager : MonoBehaviour
         if (endPhase == 3 && endButton.buttonClicked)
         {
             //Fire the seed
+            GameObject ship = Instantiate(podShip);
+            ship.GetComponent<BulletDamage>().Generate(1);
+            ship.transform.position = podPosition.position;
+            ship.transform.rotation = podPosition.rotation;
+            ship.GetComponent<Rigidbody>().velocity = podPosition.forward * launchVelocity;
+            Destroy(ship, 60);
             level.gameOver = true;
         }
 
