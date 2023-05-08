@@ -343,6 +343,16 @@ PrefabInstance:
       propertyPath: ShapeModule.m_Scale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010257050880, guid: 26f1a7148a8c124409d32a95eb91c27f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011065912796, guid: 26f1a7148a8c124409d32a95eb91c27f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26f1a7148a8c124409d32a95eb91c27f, type: 3}
 --- !u!1 &4194723827085282505 stripped

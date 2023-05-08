@@ -45,7 +45,7 @@ public class PodManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (level.currentWaveNumber == level.finalWave && endPhase == 0)
+        if (level.currentWaveNumber + 1 == level.finalWave && endPhase == 0)
         {
             endPhase = 1;
         }
@@ -63,6 +63,7 @@ public class PodManager : MonoBehaviour
 
         if (endPhase == 3 && endButton.buttonClicked)
         {
+            endPhase = 4;
             //Fire the seed
             GameObject ship = Instantiate(podShip);
             ship.GetComponent<BulletDamage>().Generate(1);
@@ -70,6 +71,10 @@ public class PodManager : MonoBehaviour
             ship.transform.rotation = podPosition.rotation;
             ship.GetComponent<Rigidbody>().velocity = podPosition.forward * launchVelocity;
             Destroy(ship, 60);
+        }
+
+        if (endPhase = 4)
+        {
             level.gameOver = true;
         }
 
