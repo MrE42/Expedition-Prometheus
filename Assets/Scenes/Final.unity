@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.031109823, g: 0.009473317, b: 0.012994485, a: 1}
+  m_IndirectSpecularColor: {r: 0.031163083, g: 0.009459269, b: 0.013044128, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6306,7 +6306,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5893c42c94bcb6c4a9f1486426c8797e, type: 2}
+      objectReference: {fileID: 2100000, guid: 3d806917d4596fb41a278835c0f20824, type: 2}
     - target: {fileID: 1627678533895676912, guid: 63cac2750ee044aaebc9c50e83a403d7,
         type: 3}
       propertyPath: m_Layer
@@ -6924,7 +6924,6 @@ MonoBehaviour:
   startWave: 0
   gameOver: 0
   numAliveEnemys: 0
-  waveTime: 40
   waveTimer: 0
   finalWave: 10
 --- !u!1 &999892480
@@ -13247,7 +13246,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7d3eb2f1a930bda4f9d06aeb3c86e4bb, type: 2}
+      objectReference: {fileID: 2100000, guid: 7867acc6ef98f364a92d51a315153df5, type: 2}
     - target: {fileID: 1627678533895676912, guid: 63cac2750ee044aaebc9c50e83a403d7,
         type: 3}
       propertyPath: m_Layer
@@ -22830,6 +22829,7 @@ MonoBehaviour:
   Doors: {fileID: 8300000, guid: e38097e0ef7a6c4429f0702372d181d0, type: 3}
   powerShot: {fileID: 8300000, guid: 8ad3b7fb140c63342ac2da0c93913019, type: 3}
   selfDestruct: 0
+  startTime: 0
   startTimer: 10
 --- !u!328 &7415219919545866735
 VideoPlayer:

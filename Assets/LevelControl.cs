@@ -18,7 +18,7 @@ public class LevelControl : MonoBehaviour
     public bool startWave = false;
     public bool gameOver = false;
     public int numAliveEnemys = 0;
-    public float waveTime = 20;
+    private float waveTime = 20;
     public float waveTimer = 0;
 
     public int finalWave = 10;
@@ -64,6 +64,7 @@ public class LevelControl : MonoBehaviour
 
     void StartWave(int waveNumber)
     {
+        waveTime += 2;
         List<int> spawnRequests = waves[waveNumber];
         Debug.Log(spawnRequests.Count);
         foreach (int enemyType in spawnRequests)
