@@ -73,7 +73,7 @@ public class PodManager : MonoBehaviour
             Destroy(ship, 60);
         }
 
-        if (endPhase = 4)
+        if (endPhase == 4)
         {
             level.gameOver = true;
         }
