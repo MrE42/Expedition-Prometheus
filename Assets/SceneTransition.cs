@@ -8,6 +8,6 @@ public class SceneTransition : MonoBehaviour
 
     public void LoadMainLevel(string scene)
     {
-        SceneManager.LoadScene(scene); // Replace "MainLevel" with the name of your main level scene.
+        UnityEngine.SceneManagement.SceneManager.LoadScene(scene); // Replace "MainLevel" with the name of your main level scene.
     }
 }
