@@ -25,7 +25,7 @@ public class crewmateAI : MonoBehaviour
     public GameObject chargedImpact;
 
     private GameObject impact;
-
+    
     void Start()
     {
         health = startingHealth;

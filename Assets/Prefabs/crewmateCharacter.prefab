@@ -889,7 +889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  walkingSpeed: 350
+  walkingSpeed: 200
   attackDistance: 1.5
   die: 0
   startingHealth: 3
