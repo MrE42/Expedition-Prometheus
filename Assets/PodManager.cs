@@ -61,12 +61,11 @@ public class PodManager : MonoBehaviour
             buttonText.GetComponent<TextMeshPro>().text = "Press To Launch Seed";
         }
 
-        if (endPhase == 3 && endButton.buttonClicked)
+        if (endPhase == 3 && endButton.buttonClicked || endPhase == 5)
         {
             endPhase = 4;
             //Fire the seed
             GameObject ship = Instantiate(podShip);
-            ship.GetComponent<BulletDamage>().Generate(1);
             ship.transform.position = podPosition.position;
             ship.transform.rotation = podPosition.rotation;
             ship.GetComponent<Rigidbody>().velocity = podPosition.forward * launchVelocity;

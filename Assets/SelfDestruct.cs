@@ -29,8 +29,8 @@ public class SelfDestruct : MonoBehaviour
                 buttonClicked = true;
                 if (levelControl.gameOver)
                 {
-                    screen.selfDestruct = true;
                     screen.gameObject.GetComponent<VideoPlayer>().Play();
+                    screen.selfDestruct = true;
                 }
             }
             gameObject.transform.position = buttonDown;

@@ -141,6 +141,11 @@ public class ScreenController : MonoBehaviour
                 startTime = 0;
             } 
         }
+
+        if (!gameObject.GetComponent<VideoPlayer>().isPlaying && selfDestruct == true)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Win");
+        }
         
     }
 
