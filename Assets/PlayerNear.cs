@@ -10,7 +10,7 @@ public class PlayerNear : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) < 2)
+        if (Vector3.Distance(gameObject.transform.position, player.transform.position) < 2.5)
         {
             screen.nearby = true;
         }
