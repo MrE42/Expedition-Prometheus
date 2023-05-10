@@ -101,6 +101,7 @@ public class HealthSystem : MonoBehaviour
 			}
 		}else if (deathStart!=0 && Time.time-deathStart>10)
         {
+			/*
 			ColorAdjustments colorAdjustment;
 			if (postProcessingVolume.profile.TryGet<ColorAdjustments>(out colorAdjustment))
 			{
@@ -108,6 +109,9 @@ public class HealthSystem : MonoBehaviour
 			}
 			deathStart = 0;
 			cleanupRan = false;
+			*/
+			int currentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+			UnityEngine.SceneManagement.SceneManager.LoadScene(currentSceneIndex);
 		}
 	}
 
