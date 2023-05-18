@@ -40,6 +40,7 @@ public class ScreenController : MonoBehaviour
     public AudioClip powerShot;
 
     public bool selfDestruct = false;
+    private bool timerStarted = false;
 
     public float startTime = 0;
     public float startTimer = 10;
@@ -142,7 +143,10 @@ public class ScreenController : MonoBehaviour
             } 
         }
 
-        if (!gameObject.GetComponent<VideoPlayer>().isPlaying && selfDestruct == true)
+        if (gameObject.GetComponent<VideoPlayer>().isPlaying)
+        {
+            timerStarted = true;
+        } else if (!gameObject.GetComponent<VideoPlayer>().isPlaying && selfDestruct && timerStarted)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Win");
         }
